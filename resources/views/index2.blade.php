@@ -5,7 +5,7 @@
  <h1 align="center"> หน้าหลัก </h1>
  <h1 align="center">การจัดการข้อมูล</h1>
    <div class="row">
-      <div class="col-md-12">
+      {{-- <div class="col-md-12">
          <br>
        <div align="center">  <a href="{{route('user.index')}}" class="btn btn-success" >การจัดการข้อมูลนิสิต</a></div>
        <br>
@@ -15,6 +15,6 @@
          <div align="center">  <a href="{{route('course.index')}}" class="btn btn-success" >การจัดการข้อมูลรายวิชา</a></div>
          <br>
 
-       </div>
+       </div> --}}
        </div>
 @stop

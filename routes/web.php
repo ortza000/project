@@ -7,6 +7,9 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::resource('user','UserController');
+Route::resource('teacher','TechersController');
+Route::resource('course','CourseController');
 Auth::routes();
 
-Route::get('/index2', 'HomeController@index')->name('index2');
+Route::get('/home', 'HomeController@index')->name('home');

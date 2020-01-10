@@ -1,4 +1,5 @@
-@extends('user.master')
+@extends('layouts.app')
+
 @section('title','Welcom Homepage')
 @section('content')
     <div class="container">

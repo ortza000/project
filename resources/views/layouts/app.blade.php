@@ -58,12 +58,22 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('ออกจากระบบ') }}
-                                    </a>
 
+                                    <a class="dropdown-item" href="{{ route('user.index') }}">
+                                     {{ __('การจัดการข้อมูลนิสิต') }}
+                                 </a>
+                                 <a class="dropdown-item" href="{{ route('teacher.index') }}">
+                                    {{ __('การจัดการข้อมูลอาจารย์') }}
+                                </a>
+                                <a class="dropdown-item" href="{{ route('course.index') }}">
+                                    {{ __('การจัดการข้อมูลรายวิชา') }}
+                                </a>
+
+                           <a class="dropdown-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                            {{ __('ออกจากระบบ') }}
+                        </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
