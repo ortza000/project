@@ -28,13 +28,15 @@ educational background</th>
                   <td>{{$row['teh_qualification']}}</td>
                   <td>{{$row['teh_email']}}</td>
 
-                  <td><a href="#" class="btn btn-primary">Edit</a></td>
+                  <td><a href="{{action('TechersController@edit',$row['teh_id'])}}" class="btn btn-primary">Edit</a></td>
                   <td>
                     <form  method="post" class="delete_form" action="{{action('TechersController@destroy',$row['teh_id'])}}">
                       {{csrf_field()}}
                     <input type="hidden" name="_method" value="DELETE" />
+
                     <button type="submit" class="btn btn-danger">DELETE</button>
                     </form>
+                    <td>
                   </td>
                 </tr>
                 @endforeach

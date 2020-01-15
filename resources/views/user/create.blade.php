@@ -1,4 +1,4 @@
-@extends('user.master')
+@extends('layouts.app')
 @section('title','จัดการฐานข้อมูล นิสิต')
 @section('content')
 <div class="container">

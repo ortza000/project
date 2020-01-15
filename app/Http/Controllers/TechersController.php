@@ -76,7 +76,8 @@ class TechersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = Teacher::find($id);
+       return view('teacher.edit',compact('user','id'));
     }
 
     /**
@@ -88,7 +89,24 @@ class TechersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,
+        [
+            'tehid' => 'required',
+            'tehname' => 'required',
+            'tehphone' => 'required',
+            'tehqualification' => 'required',
+            'tehemail' => 'required'
+
+        ]
+        );
+        $user = Teacher::find($id);
+        $user->teh_id = $request->get('tehid');
+        $user->teh_name = $request->get('tehname');
+        $user->teh_phone = $request->get('tehphone');
+        $user->teh_qualification = $request->get('tehqualification');
+        $user->teh_email = $request->get('tehemail');
+          $user->save();
+        return redirect()->route('teacher.index')->with('success','บันทึกข้อมูลเรียบร้อย');
     }
 
     /**
@@ -99,6 +117,9 @@ class TechersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = Teacher::find($id);
+        Teacher::destroy($id);
+
+      return redirect()->route('teacher.index')->with('success','ลบเรียบร้อย');
     }
 }

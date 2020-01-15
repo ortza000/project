@@ -68,6 +68,12 @@
                                 <a class="dropdown-item" href="{{ route('course.index') }}">
                                     {{ __('การจัดการข้อมูลรายวิชา') }}
                                 </a>
+                                <a class="dropdown-item" href="{{ route('event.index') }}">
+                                    {{ __('การจัดการข้อมูลโครงการกิจกรรม') }}
+                                </a>
+                                <a class="dropdown-item" href="{{ route('project.index') }}">
+                                    {{ __('การจัดการข้อมูลคอร์ส') }}
+                                </a>
 
                            <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();

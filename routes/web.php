@@ -6,11 +6,9 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return view('auth.login');
 });
-Route::get('/', function () {
-    return view('layouts.master');
-});
 
-
+Route::resource('project','ProjectController');
+Route::resource('event','EventController');
 Route::resource('user','UserController');
 Route::resource('teacher','TechersController');
 Route::resource('course','CourseController');

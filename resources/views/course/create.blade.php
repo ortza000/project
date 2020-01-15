@@ -1,4 +1,4 @@
-@extends('course.master4')
+@extends('layouts.app')
 @section('title','จัดการฐานข้อมูล อาจารย์')
 @section('content')
 <div class="container">

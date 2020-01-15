@@ -23,20 +23,18 @@
         <form method="post" action="{{url('teacher')}}" >
           {{csrf_field()}}
           <div class="form-group">
-          <input type="text" name="tehid" class="form-control" placeholder="รหัสไอดี" />
+          <input type="text" name="proid" class="form-control" placeholder="รหัสไอดี" />
          </div>
+
           <div class="form-group">
-            <input type="text" name="tehname" class="form-control" placeholder="ป้อนชื่อ นามสกุล" />
+            <input type="text" name="proname" class="form-control" placeholder="ชื่อกิจกรรม" />
           </div>
+
           <div class="form-group">
-            <input type="text" name="tehphone" class="form-control" placeholder="เบอร์โทร" />
+            <input type="text" name="prodes" class="form-control" placeholder="รายละเอียด" />
           </div>
-          <div class="form-group">
-            <input type="text" name="tehqualification" class="form-control" placeholder="วุฒิการศึกษา" />
-          </div>
-          <div class="form-group">
-            <input type="text" name="tehemail" class="form-control" placeholder="email" />
-          </div>
+
+
 
 
           <div class="form-group">

@@ -1,0 +1,45 @@
+@extends('layouts.app')
+@section('title','จัดการฐานข้อมูล นิสิต')
+@section('content')
+<div class="container">
+  <div class="row">
+    <div class="col-md-12"> <br/>
+      <h3 align="center">เเก้ไขข้อมูล อาจารย์</h3>
+      @if(count($errors) > 0)
+      <div class="alert alert-danger">
+        <ul>
+          @foreach($errors->all() as $errors)
+          <li>{{$errors}}</li>
+          @endforeach
+        </ul>
+      </div>
+      @endif
+
+
+        <form method="post" action="{{action('TechersController@update',$id)}}" >
+          {{csrf_field()}}
+          <div class="form-group">
+          <input type="text" name="tehid" class="form-control" placeholder="รหัสไอดี" value="{{$user->teh_id}}" />
+         </div>
+          <div class="form-group">
+            <input type="text" name="tehname" class="form-control" placeholder="ป้อนชื่อ นามสกุล"  value="{{$user->teh_name}}" />
+          </div>
+          <div class="form-group">
+            <input type="text" name="tehphone" class="form-control" placeholder="รหัสนิสิต"  value="{{$user->teh_phone}}" />
+          </div>
+          <div class="form-group">
+            <input type="text" name="tehqualification" class="form-control" placeholder="ปีการศึกษา"  value="{{$user->teh_qualification}}" />
+          </div>
+          <div class="form-group">
+            <input type="text" name="tehemail" class="form-control" placeholder="เบอร์"  value="{{$user->teh_email}}" />
+          </div>
+
+          <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="อัพเดท"/>
+          </div>
+          <input type="hidden" name="_method" value="PATCH" />
+        </form>
+      </div>
+    </div>
+  </div>
+@endsection
