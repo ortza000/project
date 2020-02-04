@@ -9,7 +9,9 @@ class Event extends Model
 {
 
   protected $table = 'projectandevent';
-   public $timestamps = false;
+  protected $primaryKey = 'pro_id';
+  public $incrementing = false;
+  public $timestamps = false;
   protected $fillable=
   [
   'pro_id',
@@ -19,3 +21,4 @@ class Event extends Model
 
 
 }
+

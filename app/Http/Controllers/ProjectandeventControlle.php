@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Event;
-class EventController extends Controller
+
+class ProjectandeventControlle extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,17 +13,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        $users = Event::all()->toArray();
-       return view('event.index', compact('users'));
 
     }
-    public function index2()
-    {
-        $users = Event::all()->toArray();
-       return view('home', compact('users'));
-
-    }
-
 
     /**
      * Show the form for creating a new resource.
@@ -32,15 +23,9 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('event.create');
+        //
     }
 
-    public function register($id)
-    {
-
-        $user = Event::find($id);
-        return view('clients-page.register',compact('user','id'));
-    }
     /**
      * Store a newly created resource in storage.
      *

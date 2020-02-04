@@ -1,6 +1,4 @@
-<?php
- include 'head.php';
-?>
+@extends('layouts.app')
 	<section class="page-header-wrapper">
 
                 <div id="x-corp-carousel" class="carousel slide hero-slide" data-ride="carousel">
@@ -93,7 +91,7 @@
 
       $sql = "select * from course limit {$start} , {$perpage} ";
 
-      $query = mysqli_query($con, $sql);
+      $query = mysqli_query($con ?? '', $sql);
 
       ?>
 
@@ -121,7 +119,7 @@
 						</section>
             <?php
 $sql2 = "select * from course ";
-$query2 = mysqli_query($con, $sql2);
+$query2 = mysqli_query($con ?? '', $sql2);
 $total_record = mysqli_num_rows($query2);
 $total_page = ceil($total_record / $perpage);
 ?>
@@ -150,7 +148,7 @@ $total_page = ceil($total_record / $perpage);
                                 </nav>
 	</section>
 
-				
+
 
 
 
