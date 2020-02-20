@@ -91,7 +91,7 @@
 
         <section class="service-wrapper">
             <h2 class="section-title wow fadeInDown">ข่าวประชาสัมพันธ์</h2>
-            @foreach($users as $row)
+            @foreach($errors as $row)
             <div class="row">
                 <div class="col-md-6 wow fadeInRight">
                     <div class="media">

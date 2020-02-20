@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('password'); //รหัสผ่าน
             $table->rememberToken();
             $table->timestamps();
+            $table->boolean('type')->default(0);
         });
     }
 

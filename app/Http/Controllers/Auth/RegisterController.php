@@ -74,6 +74,8 @@ class RegisterController extends Controller
             // 'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'remember_token' => str_random(10),
+            'type' => User::DEFAULT_TYPE,
         ]);
     }
+
 }

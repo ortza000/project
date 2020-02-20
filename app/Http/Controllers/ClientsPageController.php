@@ -27,7 +27,16 @@ class ClientsPageController extends Controller
        return view('home', compact('users'));
 
     }
+    public function show($id)
+    {
+        $user = Event::find($id);
+        $test1 = Auth::user()->id;
 
+        $users = DB::select("select sr.stdevent_des,sr.std_id,s.std_name from student_event_register sr ,student s  where s.std_id=sr.std_id and pro_id='$id'");
+
+
+       return view('clients-page.detail',compact('user','id'),['users' => $users]);
+    }
     public function edit($id)
     {
         $user = Event::find($id);
@@ -37,7 +46,11 @@ class ClientsPageController extends Controller
 
 
        return view('clients-page.register',compact('user','id'),['users' => $users]);
+
+
     }
+
+
     public function store(Request $request)
     {
       $this->validate($request,

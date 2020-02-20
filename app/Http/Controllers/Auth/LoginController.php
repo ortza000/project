@@ -56,4 +56,12 @@ class LoginController extends Controller
     {
         return $this->username;
     }
+    protected function redirectTo()
+{
+    if(auth()->user()->isAdmin()) {
+        return '/admin/dashboard';
+    } else {
+        return '/home';
+    }
+}
 }

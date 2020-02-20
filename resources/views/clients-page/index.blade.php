@@ -43,7 +43,7 @@
                     <span>Sports Club</span>
                     <p>{{$row['pro_des']}}</p>
                     <p><td><a href="{{action('ClientsPageController@edit',$row['pro_id'])}}" class="btn btn-primary">ลงทะเบียน</a></td></p>
-
+                    <p><td><a href="{{action('ClientsPageController@show',$row['pro_id'])}}" class="btn btn-primary">ตรวจสอบคนลงทะเบียน</a></td></p>
                     @endforeach
                 </div>
 
