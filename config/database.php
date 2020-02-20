@@ -45,7 +45,7 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'url' => env('DATABASE_URL'),
+            'url' => env('postgres://dewlkcvvlvccor:e9b51f67c5a4f0cc4eff5d51d0cfdd107c709effd92275aa87fdda010debf98b@ec2-3-231-46-238.compute-1.amazonaws.com:5432/dafbdevjf6r07b'),
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'project_it'),
@@ -67,9 +67,9 @@ return [
             'driver' => 'pgsql',
             'url' => env('postgres://dewlkcvvlvccor:e9b51f67c5a4f0cc4eff5d51d0cfdd107c709effd92275aa87fdda010debf98b@ec2-3-231-46-238.compute-1.amazonaws.com:5432/dafbdevjf6r07b'),
             'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'project_it'),
-            'username' => env('DB_USERNAME', 'root'),
+            'port' => env('DB_PORT', '5432'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
             'charset' => 'utf8',
             'prefix' => '',
