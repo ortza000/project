@@ -1,4 +1,3 @@
-
 @extends('layouts2.master2')
 @section('css')
 

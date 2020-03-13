@@ -6,25 +6,63 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return view('auth.login');
 });
-Route::get('/123', function () {
-    return view('fullcal');
-});
 
 
+
+ Route::resource('fullcalendar', 'FullCalendarController');
+ Route::resource('fullcalendar1', 'FullCalendarStudentController');
+
+
+Route::get('/load-events', 'EventcalendarController@loadEvents')->name('routeLoadEvents');
+
+Route::put('/event-update', 'EventcalendarController@update')->name('routeEventUpdate');
+Route::post('/event-store', 'EventcalendarController@store')->name('routeEventStore');
+
+Route::delete('/event-destroy', 'EventcalendarController@destroy')->name('routeEventDelete');
+
+// Route::get('/about-us/{course_id}', 'AboutUsController@show')->name('show.id');
 
 Route::resource('project','ProjectController');
 Route::resource('event','EventController');
 
 Route::resource('user','UserController');
 Route::resource('teacher','TechersController');
-Route::resource('course','CourseController');
+Route::resource('New-teacher','NewController');
+Route::get('/index-course', 'NewController@show')->name('Newcourse');
+Route::get('/index-event', 'NewController@show1')->name('Newevent');
+Route::resource('course_admin','admin\CourseStatusController');
+Route::get('/course_admin/create/{std_id}/{course_id}', 'admin\CourseStatusController@create');
+
+
+Route::resource('Subject','SubjectController');
 Route::resource('about-us','AboutUsController');
+Route::get('/about-us/{id}', 'AboutUsController@edit');
+Route::get('/about-us/detailinvite', 'AboutUsController@show')->name('detailinvite');
+
 Route::resource('faq','FaqController');
 Route::resource('portfolio-four','PortfolioFourController');
 Route::resource('clients-page','ClientsPageController');
 
 
-Auth::routes();
+Route::resource('course','CourseController');
+
+//image
+Route::get('image', 'ImageController@index');
+Route::post('save', 'ImageController@save');
+
+//route teacher
+Route::resource('clients-page-teacher','teacher\TeacherClientsPageControlle');
+
+Route::resource('faq-teacher','teacher\TeacherFaqController');
+
+
+
+Route::resource('course-teacher','teacher\TeacherCourseController');
+
+
+
+
+ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('index2');
 Route::get('/home', 'EventController@index2')->name('clients-page');
@@ -43,9 +81,18 @@ Route::post('/fullcalendareventmaster/delete','FullCalendarEventMasterController
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', 'HomeController@index');
 });
+Route::group(['middleware' => ['teacher']], function () {
+    Route::get('/home3', 'admin\TeacherloginController@index');
+    Route::get('/clients-page-teacher','teacher\TeacherClientsPageControlle@index')->name('clients-page-teacher');
+    Route::get('/about-us-teacher','teacher\TeacherAboutUsController@index1')->name('about-us-teacher');
+});
 //Route for admin
 Route::group(['prefix' => 'admin'], function(){
     Route::group(['middleware' => ['admin']], function(){
         Route::get('/dashboard', 'admin\AdminController@index');
     });
 });
+
+
+
+

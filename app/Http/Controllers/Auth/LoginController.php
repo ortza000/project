@@ -60,8 +60,17 @@ class LoginController extends Controller
 {
     if(auth()->user()->isAdmin()) {
         return '/admin/dashboard';
-    } else {
+    } elseif(auth()->user()->isteacher()) {
+        return '/home3';
+    } else{
         return '/home';
     }
 }
+
+
+
+
+
+
+
 }

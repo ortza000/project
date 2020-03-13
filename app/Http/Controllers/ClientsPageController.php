@@ -20,6 +20,13 @@ class ClientsPageController extends Controller
         return view('clients-page.index',compact('users',));
 
     }
+    public function index1()
+    {
+        $users = Event::all()->toArray();
+
+        return view('clients-page-teacher.index1',compact('users',));
+
+    }
 
     public function index2()
     {
@@ -43,7 +50,6 @@ class ClientsPageController extends Controller
         $test1 = Auth::user()->id;
 
         $users = DB::select("select u.id,s.std_id,s.std_name from users u,student s where u.id=s.id and u.id = '$test1'");
-
 
        return view('clients-page.register',compact('user','id'),['users' => $users]);
 

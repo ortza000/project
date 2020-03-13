@@ -24,7 +24,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('project.create');
     }
 
     /**
@@ -35,7 +35,31 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,
+      [
+
+
+        'coursename' => 'required',
+        'coursedes' => 'required',
+        'start' => 'required',
+        'end' => 'required',
+        'color' => 'required'
+
+
+      ]
+      );
+      $user = new Project(
+        [
+
+        'course_name'  => $request->get('coursename'),
+        'course_des' => $request->get('coursedes'),
+        'start' => $request->get('start'),
+        'end' => $request->get('end'),
+        'color' => $request->get('color')
+        ]
+      );
+        $user->save();
+      return redirect()->route('course-teacher.index')->with('success1','บันทึกข้อมูลเรียบร้อย');
     }
 
     /**

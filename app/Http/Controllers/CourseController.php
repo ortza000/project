@@ -3,102 +3,62 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Course;
+use App\Project;
+use App\student_course;
+
+
+
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
 class CourseController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-      $users = Course::all()->toArray();
-      return view('course.index', compact('users'));
+        $users = Project::all()->toArray();
+
+        return view('course.index1',compact('users',));
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+
+
+    public function edit($id)
     {
-        return view('course.create');
-    }
+        $user = Project::find($id);
+        $test1 = Auth::user()->id;
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+        $users = DB::select("select u.id,s.std_id,s.std_name from users u,student s where u.id=s.id and u.id = '$test1'");
+       return view('course.register',compact('user','id'),['users' => $users]);
+
+
+    }
     public function store(Request $request)
     {
       $this->validate($request,
       [
-        'subid' => 'required',
-        'tehid' => 'required',
-        'subname' => 'required',
-        'subdes' => 'required',
-        'subterm' => 'required'
+
+        'proid' => 'required',
+        'stdid' => 'required',
+        'date' => 'required'
       ]
       );
-      $user = new Course(
+      $user = new student_course(
         [
-        'sub_id'    => $request->get('subid'),
-        'teh_id'  => $request->get('tehid'),
-        'sub_name'  => $request->get('subname'),
-        'sub_des'  => $request->get('subdes'),
-        'sub_term' => $request->get('subterm')
+
+
+        'course_id'  => $request->get('proid'),
+        'std_id'  => $request->get('stdid'),
+        'stdcourse_date'  => $request->get('date'),
+
         ]
       );
         $user->save();
-      return redirect()->route('course.index')->with('success1','บันทึกข้อมูลเรียบร้อย');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+      return redirect()->route('course')->with('success1','บันทึกข้อมูลเรียบร้อย');
     }
 }

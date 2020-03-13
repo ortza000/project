@@ -75,6 +75,21 @@
 
                             <a class="btn btn-primary joblist-btn" href="#">View all jobs <i  style=""
                                     class="fa fa-angle-right "></i> </a>
+                                <br>
+                                <br>
+                            <h3 align="left" class="section-title">รายการการลงทะเบียนอบรม</h3>
+                            <ul class="joblist-link">
+
+
+                                <?php foreach ($users1 as $row):?>
+
+
+                                <li   ><a  href="{{url('about-us/'.$row->course_id)}}"><?php echo $row->course_name; ?></a></li>
+                                <?php endforeach; ?>
+                            </ul>
+
+
+                            <li><a class="btn btn-primary"  href="{{url('about-us/detailinvite')}}">About</a></li>
 
                         </div>
                     </div>

@@ -12,7 +12,7 @@ jQuery(function ($) {
         $('#preloader').delay(200).fadeOut('slow');
     });
 
-    
+
     // -------------------------------------------------------------
     // WOW JS
     // -------------------------------------------------------------
@@ -22,20 +22,20 @@ jQuery(function ($) {
     }());
 
 
-    
+
     // -------------------------------------------------------------
     // Related Project
     // -------------------------------------------------------------
 
     (function () {
           $(".related-work-carousel").owlCarousel({
-         
+
               autoPlay: 5000, //Set AutoPlay to 5 seconds
-         
+
               items : 3,
               itemsDesktop : [1199,3],
               itemsDesktopSmall : [979,3]
-         
+
           });
     }());
 
@@ -123,7 +123,7 @@ jQuery(function ($) {
         });
     }());
 
-    
+
     // -------------------------------------------------------------
     // Chart
     // -------------------------------------------------------------
@@ -154,7 +154,7 @@ jQuery(function ($) {
     // -------------------------------------------------------------
 
     (function () {
-    
+
         /* initialize shuffle plugin */
         var $grid = $('#grid');
 
@@ -176,7 +176,7 @@ jQuery(function ($) {
             // reshuffle grid
             $grid.shuffle('shuffle', groupName );
         });
-    
+
     }());
 
 
@@ -231,7 +231,7 @@ jQuery(function ($) {
                 } else {
                     $('#toTop').fadeOut();
                 }
-            }); 
+            });
 
         $('#toTop').on('click',function(){
             $("html, body").animate({ scrollTop: 0 }, 600);
@@ -242,8 +242,6 @@ jQuery(function ($) {
 
 
 
-
-
     // ----------------------------------------------------------------
     //  Dropdown menu
     // ----------------------------------------------------------------
@@ -251,7 +249,7 @@ jQuery(function ($) {
 
     (function () {
 
-      
+
         function getIEVersion() {
             var match = navigator.userAgent.match(/(?:MSIE |Trident\/.*; rv:)(\d+)/);
             return match ? parseInt(match[1]) : false;
@@ -261,7 +259,7 @@ jQuery(function ($) {
         if( getIEVersion() ){
             $('html').addClass('ie'+getIEVersion());
         }
-       
+
 
         if( $('html').hasClass('ie9') || $('html').hasClass('ie10')  ){
 
@@ -360,5 +358,9 @@ jQuery(function ($) {
 
             });
         }());
+
+        $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').trigger('focus')
+          })
 
 }); // JQuery end

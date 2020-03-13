@@ -139,4 +139,7 @@ class UserController extends Controller
 
       return redirect()->route('user.index')->with('success','ลบเรียบร้อย');
     }
+    public function AuthRouteAPI(Request $request){
+        return $request->user();
+     }
 }

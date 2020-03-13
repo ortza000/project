@@ -78,32 +78,20 @@
 												</ul>
 											</div><!-- /.submenu-inner -->
 										</div> <!-- /.submenu-wrapper --> --}}
-									</li>
-
-									<li id="index2"><a href="{{ route('clients-page.index') }}" >{{ __('กิจกรรมและโครงการ') }}{{-- <b class="caret"></b> --}} </a>
-										{{-- <!-- submenu-wrapper -->
-										<div class="submenu-wrapper submenu-wrapper-topbottom">
-											<div class="submenu-inner  submenu-inner-topbottom">
-												<ul class="dropdown-menu">
-													<li><a href="blog.html">Blog Standard</a></li>
-													<li><a href="blog-single.html">Blog Single</a></li>
-												</ul>
-											</div><!-- /.submenu-inner -->
-										</div> <!-- /.submenu-wrapper --> --}}
-									</li>
-
-									<li id="index3"><a href="{{ route('faq.index') }}" >Faq {{-- <b class="caret"></b> --}} </a>
-										{{-- <!-- submenu-wrapper -->
-										<div class="submenu-wrapper submenu-wrapper-topbottom">
-											<div class="submenu-inner  submenu-inner-topbottom">
-												<ul class="dropdown-menu">
-													<li><a href="portfolio-four.html">Portfolio Four Col</a></li>
-													<li><a href="portfolio-three.html">Portfolio Three Col</a></li>
-													<li><a href="portfolio-two.html">Portfolio Two Col</a></li>
-												</ul>
-											</div><!-- /.submenu-inner -->
-										</div> <!-- /.submenu-wrapper --> --}}
-									</li>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                           รายการการลงทะเบียนกิจกรรมเเละอบรม <span class="caret"></span>
+                                        </a>
+                                    <div class="submenu-wrapper submenu-wrapper-topbottom">
+                                        <div class="submenu-inner  submenu-inner-topbottom">
+                                            <ul class="dropdown-menu">
+                                                <li id="index2"><a href="{{ route('clients-page.index') }}">การลงทะเบียนกิจกรรม</a></li>
+                                                <li id="index3"><a href="{{ route('course.index') }}">การลงทะเบียนอบรม</a></li>
+                                            </ul>
+                                        </div><!-- /.submenu-inner -->
+                                    </div> <!-- /.submenu-wrapper -->
+                                    </li>
 
 
 									<li id="index4"><a href="{{ route('portfolio-four.index') }}" >Portfolio Four {{-- <b class="caret"></b> --}} </a>
@@ -137,6 +125,7 @@
                                         <div class="submenu-inner  submenu-inner-topbottom">
                                             <ul class="dropdown-menu">
                                                 <li><a href="{{ route('about-us.index') }}">ข้อมูลส่วนตัว</a></li>
+                                                <li  id="index3"><a href="{{ route('fullcalendar1.index') }}">ปฏิทินนัดหมาย</a></li>
                                                 <li>
                                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                                     onclick="event.preventDefault();

@@ -8,11 +8,17 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    const ADMIN_TYPE = 1;
-const DEFAULT_TYPE = 0;
+    const ADMIN_TYPE = 1; //ตัวแปร admin
+    const DEFAULT_TYPE = 0; //ตัวแปร นักเรียน
+    const TEACHER_TYPE = 2; //ตัวแปร อาจารย์
+
 public function isAdmin(){
     return $this->type === self::ADMIN_TYPE;
 }
+public function isteacher(){
+    return $this->type === self::TEACHER_TYPE;
+}
+
 
 
     /**

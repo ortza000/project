@@ -9,12 +9,17 @@ class Project extends Model
 {
 
   protected $table = 'course';
-   public $timestamps = false;
+  protected $primaryKey = 'course_id';
+  public $incrementing = false;
+  public $timestamps = false;
   protected $fillable=
   [
   'course_id',
   'course_name',
-  'course_des'
+  'course_des',
+  'start',
+  'end',
+  'color'
 ];
 
 

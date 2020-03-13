@@ -58,7 +58,7 @@
          </div>
          <?php } ?>
          <div class="form-group">
-            <input type="text" name="username" class="form-control" value="<?php echo $std_name; ?>" readonly />
+            <input type="text" name="username" class="form-control" value="<?php echo $std_name ?? ''; ?>" readonly />
           </div>
           <div class="form-group">
             <input type="text" name="proname" class="form-control" value="{{$user->pro_name}}" readonly />

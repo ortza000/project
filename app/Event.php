@@ -16,7 +16,10 @@ class Event extends Model
   [
   'pro_id',
   'pro_name',
-  'pro_des'
+  'pro_des',
+  'start',
+  'end',
+  'color'
 ];
 
 

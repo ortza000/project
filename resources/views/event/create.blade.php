@@ -20,7 +20,7 @@
         <p>{{ \Session::get('success') }}</p>
       </div>
       @endif
-        <form method="post" action="{{url('teacher')}}" >
+        <form method="post" action="{{url('event')}}" >
           {{csrf_field()}}
           <div class="form-group">
           <input type="text" name="proid" class="form-control" placeholder="รหัสไอดี" />
