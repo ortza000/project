@@ -42,13 +42,16 @@ Route::get('/about-us/detailinvite', 'AboutUsController@show')->name('detailinvi
 Route::resource('faq','FaqController');
 Route::resource('portfolio-four','PortfolioFourController');
 Route::resource('clients-page','ClientsPageController');
+Route::resource('image-upload','ImageResizeController');
 
 
 Route::resource('course','CourseController');
 
 //image
-Route::get('image', 'ImageController@index');
+Route::get('images', 'ImageController@index');
 Route::post('save', 'ImageController@save');
+// Route::get('image-upload', 'ImageResizeController@index');
+// Route::post('upload', 'ImageResizeController@store');
 
 //route teacher
 Route::resource('clients-page-teacher','teacher\TeacherClientsPageControlle');
