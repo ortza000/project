@@ -60,26 +60,12 @@
                                 <select id="proid"  name="proid" class="form-control">
                                     <option value="0"><center>กรุณาเลือกหัวข้อกิจกรรม</center></option>
                                     <?php foreach ($users as $row):?>
-                                    <option value="<?php echo $row->pro_id; ?>"><?php echo $row->pro_name; ?></option>
+                                    <option value="<?php echo $row->id; ?>"><?php echo $row->title; ?></option>
                                     <?php endforeach; ?>
                                   </select>
                             </div>
 
                     </div>
-                    <div class="form-group">
-                        <label for="image"> เลือกหัวข้ออบรม </label>
-
-                        <div class="col-sm-20" >
-
-                            <select id="courseid"  name="courseid" class="form-control">
-                                <option value="0"><center>กรุณาเลือกหัวข้ออบรม</center></option>
-                                <?php foreach ($users1 as $row):?>
-                                <option value="<?php echo $row->course_id; ?>"><?php echo $row->course_name; ?></option>
-                                <?php endforeach; ?>
-                              </select>
-                        </div>
-
-                </div>
                 </div>
                         <div class="card-footer">
                             <button type="submit" class="btn btn-success"> Upload </button>

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Student;
 
@@ -14,11 +14,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = Student::all()->toArray();
+        $users = Student::paginate(5);
         return view('user.index', compact('users'));
 
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -29,7 +28,15 @@ class UserController extends Controller
         return view('user.create');
 
     }
+    public function search(Request $request )
+    {
+        $search = $request->get('search');
 
+
+         $post = DB::table('student')->where('std_name','like','%'.$search.'%')->paginate(5);
+
+        return view('user.index',['users' => $post]);
+    }
     /**
      * Store a newly created resource in storage.
      *

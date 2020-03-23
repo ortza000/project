@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Teacher;
 class TechersController extends Controller
@@ -13,7 +13,7 @@ class TechersController extends Controller
      */
     public function index()
     {
-      $users = Teacher::all()->toArray();
+      $users = Teacher::paginate(5);
       return view('teacher.index', compact('users'));
     }
 
@@ -25,6 +25,12 @@ class TechersController extends Controller
     public function create()
     {
         return view('teacher.create');
+    }
+    public function search(Request $request )
+    {
+         $search = $request->get('search');
+         $post = DB::table('teacher')->where('teh_name','like','%'.$search.'%')->paginate(5);
+        return view('teacher.index',['users' => $post]);
     }
 
     /**
@@ -67,6 +73,7 @@ class TechersController extends Controller
     {
         //
     }
+
 
     /**
      * Show the form for editing the specified resource.

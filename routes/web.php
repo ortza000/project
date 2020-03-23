@@ -8,8 +8,7 @@ Route::get('/', function () {
 });
 
 
-
- Route::resource('fullcalendar', 'FullCalendarController');
+ Route::resource('fullcalendar-student', 'FullCalendar1Controller');
  Route::resource('fullcalendar1', 'FullCalendarStudentController');
 
 
@@ -23,20 +22,41 @@ Route::delete('/event-destroy', 'EventcalendarController@destroy')->name('routeE
 // Route::get('/about-us/{course_id}', 'AboutUsController@show')->name('show.id');
 
 Route::resource('project','ProjectController');
+Route::get('/search-project', 'ProjectController@search');
+
 Route::resource('event','EventController');
+Route::get('/search-event', 'EventController@search');
 
 Route::resource('user','UserController');
+Route::get('/search-student', 'UserController@search');
+
 Route::resource('teacher','TechersController');
+Route::get('/search-teacher', 'TechersController@search');
+
+Route::resource('Subject','SubjectController');
+Route::get('/search-subject', 'SubjectController@search');
+
+Route::resource('course','CourseController');
+
 Route::resource('New-teacher','NewController');
+Route::get('/New-app/{id}', 'NewController@show2');
+Route::get('/New-event/{id}', 'NewController@show2');
+Route::get('/New-course/{id}', 'NewController@show2');
 Route::get('/index-course', 'NewController@show')->name('Newcourse');
 Route::get('/index-event', 'NewController@show1')->name('Newevent');
 Route::resource('course_admin','admin\CourseStatusController');
+
+Route::resource('course_certificate','admin\CourseCertificateController');
+Route::post('/checkbox-example', 'admin\CourseCertificateController@store');
+
 Route::get('/course_admin/create/{std_id}/{course_id}', 'admin\CourseStatusController@create');
 
 
-Route::resource('Subject','SubjectController');
+
+
 Route::resource('about-us','AboutUsController');
 Route::get('/about-us/{id}', 'AboutUsController@edit');
+
 Route::get('/about-us/detailinvite', 'AboutUsController@show')->name('detailinvite');
 
 Route::resource('faq','FaqController');
@@ -50,23 +70,22 @@ Route::resource('course','CourseController');
 //image
 Route::get('images', 'ImageController@index');
 Route::post('save', 'ImageController@save');
-// Route::get('image-upload', 'ImageResizeController@index');
+ Route::get('image-upload', 'ImageResizeController@index')->name('image-upload');
 // Route::post('upload', 'ImageResizeController@store');
 
 //route teacher
 Route::resource('clients-page-teacher','teacher\TeacherClientsPageControlle');
-
 Route::resource('faq-teacher','teacher\TeacherFaqController');
-
-
-
 Route::resource('course-teacher','teacher\TeacherCourseController');
+Route::resource('about-us-teacher','teacher\TeacherAboutUsController');
+Route::get('/detail-course/{id}', 'teacher\TeacherAboutUsController@show');
 
 
 
 
  Auth::routes();
-
+ Route::resource('fileupload', 'fileController');
+ Route::post('save', 'fileController@save')->name('fileupload');
 Route::get('/home', 'HomeController@index')->name('index2');
 Route::get('/home', 'EventController@index2')->name('clients-page');
 Route::get('/clients-page/home','HomeController@index')->name('index2');

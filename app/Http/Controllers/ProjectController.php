@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Project;
+use Illuminate\Support\Facades\DB;
 class ProjectController extends Controller
 {
     /**
@@ -13,7 +14,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $users = Project::all()->toArray();
+        $users = Project::paginate(5);
        return view('project.index', compact('users'));
     }
 
@@ -25,6 +26,12 @@ class ProjectController extends Controller
     public function create()
     {
         return view('project.create');
+    }
+    public function search(Request $request )
+    {
+         $search = $request->get('search');
+         $post = DB::table('course')->where('course_name','like','%'.$search.'%')->paginate(5);
+        return view('project.index',['users' => $post]);
     }
 
     /**
@@ -81,7 +88,8 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-
+        $user = Project::find($id);
+        return view('project.edit',compact('user','id'));
     }
 
     /**
@@ -93,7 +101,20 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,
+        [
+            'courseid' => 'required',
+            'coursename' => 'required',
+            'coursedes' => 'required'
+        ]
+        );
+        $user = Project::find($id);
+        $user->course_id = $request->get('courseid');
+        $user->course_name = $request->get('coursename');
+        $user->course_des = $request->get('coursedes');
+
+          $user->save();
+        return redirect()->route('project.index')->with('success','บันทึกข้อมูลเรียบร้อย');
     }
 
     /**
@@ -104,6 +125,9 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = Project::find($id);
+        Project::destroy($id);
+
+      return redirect()->route('project.index')->with('success','ลบเรียบร้อย');
     }
 }

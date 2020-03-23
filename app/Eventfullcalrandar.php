@@ -10,7 +10,7 @@ class Eventfullcalrandar extends Model {
     public $timestamps = false;
    protected $fillable=
    [
-   'id',
+   'id_event',
    'title',
    'start',
    'end'

@@ -30,24 +30,27 @@
                 <div class="col-xs-12 col-md-9 col-sm-8">
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         <h2 align=center >รายวิชาที่สอน</h2>
-                        @foreach($users as $row)
+                        <?php foreach ($users as $row):?>
+
                         <div class="panel panel-default">
                             <div class="panel-heading panel-heading-link" role="tab" id="headingOne">
                                 <h2 class="panel-title">
                                     <a data-toggle="collapse" data-parent="#accordion" href=""
                                         aria-expanded="true" aria-controls="collapseOne">
-                                        {{$row['sub_name']}}
+                                        <?php echo $row->sub_name; ?>
+
                                     </a>
                                 </h2>
                             </div>
                             <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
                                 aria-labelledby="headingOne">
                                 <div class="panel-body">
-                                    {{$row['sub_des']}}
+                                    <?php echo $row->sub_des; ?>
+
                                 </div>
                             </div>
                         </div>
-                        @endforeach
+                        <?php endforeach; ?>
 
                     </div>
                 </div><!-- /.col-md-9 -->

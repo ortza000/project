@@ -20,26 +20,23 @@
 
   <div id='wrap'>
 
+
     <div id='external-events'>
-      <h4>รายการอบรม</h4>
+        <h4>Draggable Events</h4>
 
-      <div id='external-events-list'>
+        <div id='external-events-list'>
+          <div class='fc-event'>My Event 1</div>
+          <div class='fc-event'>My Event 2</div>
+          <div class='fc-event'>My Event 3</div>
+          <div class='fc-event'>My Event 4</div>
+          <div class='fc-event'>My Event 5</div>
+        </div>
 
-        @if($fastEvents)
-            @foreach ($fastEvents as $fastEvent)
-
-            <div class='fc-event'
-            style="padding: 4px; border: 1px solid {{$fastEvent->color}}; background-color:{{$fastEvent->color}} "
-            data-event='{"id":"{{$fastEvent->id}}", "title": "{{$fastEvent->title}}", "color": "{{$fastEvent->color}}" ,"start":"start","end":"end"}'>{{$fastEvent->title}}</div>
-            @endforeach
-        @endif
+        <p>
+          <input type='checkbox' id='drop-remove' />
+          <label for='drop-remove'>remove after drop</label>
+        </p>
       </div>
-
-      <p>
-        <input type='checkbox' id='drop-remove' />
-        <label for='drop-remove'>remove after drop</label>
-      </p>
-    </div>
 
 
 

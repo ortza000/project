@@ -14,9 +14,9 @@ class ImageResizeController extends Controller
     public function index() {
 
 
-        $users = DB::select("SELECT * FROM projectandevent ");
-        $users1 = DB::select("SELECT * FROM course ");
-        return view('image-upload.fileUpload', compact('users','users1'));
+        $users = DB::select("SELECT * FROM eventcalendars ");
+
+        return view('image-upload.fileUpload', compact('users'));
 
     }
 
@@ -34,7 +34,6 @@ class ImageResizeController extends Controller
 
         $proid                 =       $request->get('proid');
         //  dd($input['proid']);
-        $course                   =       $request->get('courseid');
         $image                   =       $request->file('image1');
         $input['imagename']      =       time().'.'.$image->extension();
 
@@ -57,7 +56,7 @@ class ImageResizeController extends Controller
         $image->move($destinationPath, $input['imagename']);
 
         // store into database table
-        Images::create(['img' => $input['imagename'],'pro_id' =>  $proid,'course_id' => $course ,'thumbnail_img' => $input['imagename']]);
+        Images::create(['img' => $input['imagename'],'id' => $proid ,'thumbnail_img' => $input['imagename']]);
 
 
         return back()

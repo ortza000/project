@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Event;
 class EventController extends Controller
@@ -13,7 +13,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $users = Event::all()->toArray();
+        $users = Event::paginate(5);
        return view('event.index', compact('users'));
 
     }
@@ -22,6 +22,13 @@ class EventController extends Controller
         $users = Event::all()->toArray();
        return view('home', compact('users'));
 
+    }
+
+    public function search(Request $request )
+    {
+         $search = $request->get('search');
+         $post = DB::table('projectandevent')->where('pro_name','like','%'.$search.'%')->paginate(5);
+        return view('event.index',['users' => $post]);
     }
 
 
@@ -87,7 +94,8 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        //
+           $user = Event::find($id);
+        return view('event.edit',compact('user','id'));
     }
 
     /**
@@ -99,7 +107,20 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,
+        [
+            'proid' => 'required',
+            'proname' => 'required',
+            'prodes' => 'required'
+
+        ]
+        );
+        $user = Event::find($id);
+        $user->pro_id = $request->get('proid');
+        $user->pro_name = $request->get('proname');
+        $user->pro_des = $request->get('prodes');
+          $user->save();
+        return redirect()->route('event.index')->with('success','บันทึกข้อมูลเรียบร้อย');
     }
 
     /**
@@ -110,6 +131,9 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = Event::find($id);
+        Event::destroy($id);
+
+      return redirect()->route('event.index')->with('success','ลบเรียบร้อย');
     }
 }

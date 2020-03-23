@@ -58,7 +58,7 @@
 				                  <span class="icon-bar"></span>
 				                </button>
 							  <!-- offcanvas-trigger-effects -->
-                                <h1 class="logo"><a class="navbar-brand" href="home"><img src="{{asset('img/logo.png')}}" alt=""></a></h1>
+                                <h1 class="logo"><a class="navbar-brand" href="home"><img src="{{asset('img/logobuu2.png')}}" alt=""></a></h1>
 
 							</div>
 
@@ -94,7 +94,7 @@
                                     </li>
 
 
-									<li id="index4"><a href="{{ route('portfolio-four.index') }}" >Portfolio Four {{-- <b class="caret"></b> --}} </a>
+									<li id="index4"><a href="{{ route('New-teacher.index') }}" >ข่าวประชาสัมพันธ์{{-- <b class="caret"></b> --}} </a>
 										{{-- <!-- submenu-wrapper -->
 										<div class="submenu-wrapper submenu-wrapper-topbottom">
 											<div class="submenu-inner  submenu-inner-topbottom">
@@ -125,7 +125,7 @@
                                         <div class="submenu-inner  submenu-inner-topbottom">
                                             <ul class="dropdown-menu">
                                                 <li><a href="{{ route('about-us.index') }}">ข้อมูลส่วนตัว</a></li>
-                                                <li  id="index3"><a href="{{ route('fullcalendar1.index') }}">ปฏิทินนัดหมาย</a></li>
+                                                <li  id="index3"><a href="{{ route('fullcalendar-student.index') }}">ปฏิทินนัดหมาย</a></li>
                                                 <li>
                                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                                     onclick="event.preventDefault();

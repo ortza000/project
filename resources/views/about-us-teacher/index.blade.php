@@ -39,41 +39,53 @@
 
 
 
-                   <h2 align="left" class="section-title">ประวัติ</h2>
+                  <li> <h2 align="left" class="section-title">ประวัติ</h2>  </li>
 
                     <div class="row">
                         <div class="col-sm-8">
 
+                            <?php foreach ($users as $row):?>
 
+                            <p> <a>ชื่อ </a><?php echo $row->teh_name; ?></p>
+                            <p> <a>เบอร์</a> <?php echo $row->teh_phone; ?></p>
+                            <p> <a>คุณวุฒิ</a> <?php echo $row->teh_qualification; ?></p>
+                            <p> <a>สถานะ</a> <?php echo $row->teh_email; ?></p>
+                            <?php endforeach; ?>
                         </div>
 
-                        <div class="col-sm-4">
-                            <h3 align="left" class="section-title">รายการการลงทะเบียกิจกรรม</h3>
-                            <ul class="joblist-link">
 
-
-                            </ul>
-
-                            <a class="btn btn-primary joblist-btn" href="#">View all jobs <i  style=""
-                                    class="fa fa-angle-right "></i> </a>
-
-                        </div>
                     </div>
+                    <div class="row">
+                    <div class="col-sm-8">
+                        <h3 align="left" class="section-title">รายการที่ปรึกษาอบรม</h3>
+                        <ul class="joblist-link">
+                            <?php foreach ($user1 as $row):?>
+
+                            <li   ><a href="{{url('detail-course/'.$row->course_id)}}"><?php echo $row->course_name; ?></a></li>
+                            <?php endforeach; ?>
+                        </ul>
+
+<br><br>
+                    </div>
+                    <div class="col-sm-8">
+                        <h3 align="left" class="section-title">รายการที่ปรึกษากิจกรรม</h3>
+                        <ul class="joblist-link">
+                            <?php foreach ($user2 as $row):?>
+
+                            <li   ><a href="{{url('detail-event/'.$row->pro_id)}}"><?php echo $row->pro_name; ?></a></li>
+                            <?php endforeach; ?>
+                        </ul>
+
+
+                    </div>
+                </div>
                 </section>
             </div><!-- /.row -->
 
 
 
 
-        <section class="download-box-wrapper">
-            <div class="download-box">
-                <ul class="list-inline">
-                    <li><a href="#">Company Profile <span>Download</span></a></li>
-                    <li><a href="#">Annual Report <span>Download</span></a></li>
-                    <li><a href="#">Corporate Brochure <span>Download</span></a></li>
-                </ul>
-            </div>
-        </section>
+
     </div><!-- /.content-wrapper -->
 </div><!-- /.container -->
 

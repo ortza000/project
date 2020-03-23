@@ -15,7 +15,7 @@ class ClientsPageController extends Controller
     }
     public function index()
     {
-        $users = Event::all()->toArray();
+        $users = Event::paginate(3);
 
         return view('clients-page.index',compact('users',));
 

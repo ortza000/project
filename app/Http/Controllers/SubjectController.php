@@ -15,10 +15,15 @@ class SubjectController extends Controller
      */
     public function index()
     {
-      $users = Subject::all()->toArray();
+      $users = Subject::paginate(5);
       return view('Subject.index', compact('users'));
     }
-
+   public function search(Request $request )
+    {
+         $search = $request->get('search');
+         $post = DB::table('subject')->where('sub_name','like','%'.$search.'%')->paginate(5);
+        return view('Subject.index',['users' => $post]);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -87,7 +92,8 @@ class SubjectController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = Subject::find($id);
+       return view('Subject.edit',compact('user','id'));
     }
 
     /**
@@ -99,7 +105,24 @@ class SubjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,
+        [
+            'subid' => 'required',
+            'tehid' => 'required',
+            'subname' => 'required',
+            'subdes' => 'required',
+            'subterm' => 'required'
+
+        ]
+        );
+        $user = Subject::find($id);
+        $user->sub_id = $request->get('subid');
+        $user->teh_id = $request->get('tehid');
+        $user->sub_name = $request->get('subname');
+        $user->sub_des = $request->get('subdes');
+        $user->sub_term = $request->get('subterm');
+          $user->save();
+        return redirect()->route('Subject.index')->with('success','บันทึกข้อมูลเรียบร้อย');
     }
 
     /**
@@ -110,6 +133,9 @@ class SubjectController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = Subject::find($id);
+        Subject::destroy($id);
+
+      return redirect()->route('Subject.index')->with('success','ลบเรียบร้อย');
     }
 }

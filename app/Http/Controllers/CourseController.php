@@ -20,9 +20,9 @@ class CourseController extends Controller
 
     public function index()
     {
-        $users = Project::all()->toArray();
+        $users = Project::paginate(5);
 
-        return view('course.index1',compact('users',));
+        return view('course.index1',compact('users'));
 
     }
 

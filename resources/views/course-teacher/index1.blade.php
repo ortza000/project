@@ -46,12 +46,15 @@
                     <span>Sports Club</span>
                     <p>{{$row['course_des']}}</p>
                     <p><td><a href="{{action('teacher\TeacherCourseController@edit',$row['course_id'])}}" class="btn btn-primary">ลงทะเบียน</a></td></p>
-
                     @endforeach
                 </div>
 
             </div>
-
+            <div class="row">
+                <div class="col-12 text-center">
+            {{$users->links()}}
+                </div>
+           </div>
 
             </div>
 

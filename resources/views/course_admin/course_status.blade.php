@@ -17,6 +17,7 @@
 
 
                 <th>ตรวจสอบคนลงทะเบียน</th>
+                <th>เกียรติบัตร</th>
 
               </tr>
               <?php foreach ($users12 as $row):?><tr>
@@ -26,9 +27,7 @@
                   <td><?php echo $row->course_name; ?></td>
 
                   <td><a href="/course_admin/create/<?php echo $row->std_id; ?>/<?php echo $row->course_id; ?>" class="btn btn-primary">ปรับสถานะการเข้าร่วม</a></td>
-                  <td>
 
-                  </td>
                 </tr>
                 <?php endforeach; ?>
             </table>

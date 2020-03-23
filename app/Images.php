@@ -7,14 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Images extends Model
 {
     protected $table = 'image';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_image';
     public $incrementing = false;
     public $timestamps = false;
     protected $fillable=
     [
+    'id_image',
     'id',
-    'pro_id',
-    'course_id',
     'img',
     'thumbnail_img'
   ];

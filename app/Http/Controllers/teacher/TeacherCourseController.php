@@ -20,7 +20,7 @@ class TeacherCourseController extends Controller
 
     public function index()
     {
-        $users = Project::all()->toArray();
+        $users = Project::paginate(5);
 
         return view('course-teacher.index1',compact('users',));
 

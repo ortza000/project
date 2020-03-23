@@ -62,15 +62,7 @@
 
 
 
-        <section class="download-box-wrapper">
-            <div class="download-box">
-                <ul class="list-inline">
-                    <li><a href="#">Company Profile <span>Download</span></a></li>
-                    <li><a href="#">Annual Report <span>Download</span></a></li>
-                    <li><a href="#">Corporate Brochure <span>Download</span></a></li>
-                </ul>
-            </div>
-        </section>
+
     </div><!-- /.content-wrapper -->
 </div><!-- /.container -->
 

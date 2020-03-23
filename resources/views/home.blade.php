@@ -29,20 +29,7 @@
             </div>
             <!--.item-->
 
-            <div class="item">
 
-                <img src="img/buufix4.jpg" alt="Hero Slide">
-                <!--Slide Image-->
-
-                <div class="container">
-                    <div class="carousel-caption">
-
-                    </div>
-                    <!--.carousel-caption-->
-                </div>
-                <!--.container-->
-            </div>
-            <!--.item-->
 
         </div>
         <!--.carousel-inner-->
@@ -88,7 +75,7 @@
         </section><!-- /.intro-wrapper -->
 
 
-        <section class="service-wrapper">
+        {{-- <section class="service-wrapper">
             <h2 class="section-title wow fadeInDown">ข่าวประชาสัมพันธ์</h2>
             @foreach($errors as $row)
             <div class="row">
@@ -109,8 +96,8 @@
                 @endforeach
 
 
-        </section>
-        <section class="service-wrapper">
+        </section> --}}
+        {{-- <section class="service-wrapper">
             <nav class="pagination-wrap text-center">
                 <ul class="pagination">
                     <li class="disabled"><a title="Previous"><i class="flaticon-arrowhead4"></i></a>
@@ -134,7 +121,7 @@
                 </ul>
 
             </nav>
-        </section>
+        </section> --}}
 
 
 
