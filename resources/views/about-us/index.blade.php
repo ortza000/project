@@ -18,7 +18,7 @@
                 </div>
                 <ol class="breadcrumb">
                     <li><a href="home">Home</a></li>
-                    <li><a href="{{ route('about-us.index') }}">About</a></li>
+                    <li><a href="{{ route('about-us') }}">About</a></li>
                     <li class="active">About Us</li>
                 </ol>
             </div>
@@ -33,21 +33,6 @@
             <center><h2>ข้อมูลส่วนตัว</h2></center>
             <div class="row margin-bottom-60">
 
-
-                    <?php
-                    foreach ($users as $user) {
-
-                        $std_name      = $user->std_name;
-                        $std_card    = $user->std_card;
-                        $std_year    = $user->std_year;
-                        $std_phone    = $user->std_phone;
-                        $std_major    = $user->std_major;
-                        $std_status    = $user->std_status;
-                        $pro_id    = $user->pro_id;
-                        $pro_name    = $user->pro_name;
-                ?>
-
-                <?php } ?>
                 <section class="team-wrapper">
 
 
@@ -56,40 +41,41 @@
 
                     <div class="row">
                         <div class="col-sm-8">
+                            <?php foreach ($user3 as $row):?>
+                            <p> <a>ชื่อ </a><?php echo $row->std_name; ?></p>
+                            <p> <a>รหัสนิสิต </a><?php echo $row->std_card; ?></p>
+                            <p> <a>ปีการศึกษา </a><?php echo $row->std_year; ?></p>
+                            <p> <a>เบอร์ </a><?php echo $row->std_phone; ?></p>
+                            <p> <a>สาขา </a><?php echo $row->std_major; ?></p>
+                            <p> <a>สถานะ </a><?php echo $row->std_status; ?></p>
 
-                            <p> <a>ชื่อ </a><?php echo $std_name; ?></p>
-                            <p> <a>รหัสนิสิต</a> <?php echo $std_card; ?> <a>ปีการศึกษา</a> <?php echo $std_year; ?></p>
-                            <p> <a>เบอร์</a> <?php echo $std_phone; ?> <a>สาขา</a> <?php echo $std_major; ?></p>
-                            <p> <a>สถานะ</a> <?php echo $std_status; ?></p>
+                            <?php endforeach; ?>
                         </div>
 
                         <div class="col-sm-4">
-                            <h3 align="left" class="section-title">รายการการลงทะเบียกิจกรรม</h3>
-                            <ul class="joblist-link">
-
-                                <?php foreach ($users as $row):?>
-
-                                <li   ><a href="job-page.html"><?php echo $row->pro_name; ?></a></li>
-                                <?php endforeach; ?>
-                            </ul>
-
-                            <a class="btn btn-primary joblist-btn" href="#">View all jobs <i  style=""
-                                    class="fa fa-angle-right "></i> </a>
-                                <br>
-                                <br>
                             <h3 align="left" class="section-title">รายการการลงทะเบียนอบรม</h3>
                             <ul class="joblist-link">
 
+                                <?php foreach ($user1 as $row):?>
 
-                                <?php foreach ($users1 as $row):?>
-
-
-                                <li   ><a  href="{{url('about-us/'.$row->course_id)}}"><?php echo $row->course_name; ?></a></li>
+                                <li   ><a><?php echo $row->course_name; ?></a></li>
                                 <?php endforeach; ?>
                             </ul>
 
 
-                            <li><a class="btn btn-primary"  href="{{url('about-us/detailinvite')}}">About</a></li>
+                                <br>
+                                <br>
+                            <h3 align="left" class="section-title">รายการการลงทะเบียนกิจกรรม</h3>
+                            <ul class="joblist-link">
+
+                                <?php foreach ($user2 as $row):?>
+
+                                <li   ><a><?php echo $row->pro_name; ?></a></li>
+                                <?php endforeach; ?>
+                            </ul>
+
+
+
 
                         </div>
                     </div>

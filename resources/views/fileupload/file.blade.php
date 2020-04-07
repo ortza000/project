@@ -6,9 +6,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
 </head>
 <body>
+    <br><br><br><br>
 <div class="container">
   <div class="row justify-content-center">
+
     <div class="card">
+
        <div class="card-header">อัพโหลดเอกสารกิจกรรมเเละอบรม</div>
 
          <div class="card-body">
@@ -36,6 +39,7 @@
 
             <form action="{{ url('fileupload') }}" method="post" enctype="multipart/form-data">
                 @csrf
+
                 <div class="form-group">
                     <input type="file" class="form-control-file" name="file" id="file" aria-describedby="fileHelp">
                     <small id="fileHelp" class="form-text text-muted">Please upload a valid image file. Size of image should not be more than 2MB.</small>
@@ -47,7 +51,7 @@
                     <div class="col-sm-20" >
 
                         <select id="courseid"  name="courseid" class="form-control">
-                            <option value="0"><center>กรุณาเลือกหัวข้อกิจกรรม</center></option>
+                            <option value="0"><center>กรุณาเลือกหัวข้ออบรม</center></option>
                             <?php foreach ($users as $row):?>
                             <option value="<?php echo $row->course_id; ?>"><?php echo $row->course_name; ?></option>
                             <?php endforeach; ?>

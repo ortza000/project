@@ -23,6 +23,7 @@
             <table class="table table-dark">
               <tr>
                 <th>ID</th>
+
                 <th>ไอดีอาจารย์</th>
                 <th>ชื่อรายวิชา</th>
                 <th>รายละเอียด</th>

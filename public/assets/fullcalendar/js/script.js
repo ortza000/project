@@ -28,6 +28,8 @@ $(function(){
 
         let id = $("#modalFastEvent input[name='id']").val();
 
+        let course_id = $("#modalFastEvent input[name='course_id']").val();
+
         let title = $("#modalFastEvent input[name='title']").val();
 
         let start = $("#modalFastEvent input[name='start']").val();
@@ -39,6 +41,7 @@ $(function(){
         let description = $("#modalCalendar textarea[name='description']").val();
 
         let Event = {
+            course_id: course_id,
             title: title,
             start: start,
             end: end,
@@ -67,6 +70,7 @@ $(function(){
 
         let title = $("#modalCalendar input[name='title']").val();
 
+        let course_id = $("#modalFastEvent input[name='course_id']").val();
 
         let start =  moment($("#modalCalendar input[name='start']").val(),"DD/MM/YYYY HH:mm:ss").format("YYYY-MM-DD HH:mm:ss");
 
@@ -79,6 +83,7 @@ $(function(){
         let type = $("#modalCalendar select[name='type']").val();
 
         let Event = {
+            course_id: course_id,
             title: title,
             start: start,
             end: end,

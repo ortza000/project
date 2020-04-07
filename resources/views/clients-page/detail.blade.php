@@ -18,7 +18,7 @@
                 </div>
                 <ol class="breadcrumb">
                     <li><a href="home">Home</a></li>
-                    <li><a href="{{ route('about-us.index') }}">About</a></li>
+                    <li><a href="{{ route('about-us') }}">About</a></li>
                     <li class="active">About Us</li>
                 </ol>
             </div>

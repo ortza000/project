@@ -32,7 +32,7 @@
             <div id="boxFastEvent{{ $fastEvent->id }}"
                 style="padding: 4px; border: 1px solid {{ $fastEvent->color }}; background-color: {{ $fastEvent->color }}"
                 class='fc-event event text-center'
-                data-event='{"id":"{{ $fastEvent->course_id }}","title":"{{ $fastEvent->course_name }}","description":"{{ $fastEvent->course_des }}","color":"{{ $fastEvent->color }}","start":"{{ $fastEvent->start }}","end":"{{ $fastEvent->end }}"}'>
+                data-event='{"id":"{{ $fastEvent->course_id }}","course_id":"{{ $fastEvent->course_id }}","title":"{{ $fastEvent->course_name }}","description":"{{ $fastEvent->course_des }}","color":"{{ $fastEvent->color }}","start":"{{ $fastEvent->start }}","end":"{{ $fastEvent->end }}"}'>
                 {{ $fastEvent->course_name }}
             </div>
 

@@ -74,29 +74,34 @@
             </div><!-- /.row -->
         </section><!-- /.intro-wrapper -->
 
-
-        {{-- <section class="service-wrapper">
+        <section class="service-wrapper">
             <h2 class="section-title wow fadeInDown">ข่าวประชาสัมพันธ์</h2>
-            @foreach($errors as $row)
+            <?php foreach ($users as $row):?>
             <div class="row">
                 <div class="col-md-6 wow fadeInRight">
                     <div class="media">
                         <a class="media-left" href="#">
-                            <span class="icon bg1 flaticon-increasing5"></span>
+                            <img src="image/<?php echo $row->img; ?>" alt="">
                         </a>
 
                         <div class="media-body">
-                            <h3 class="media-heading"><a href="#"> {{$row['pro_id']}}</a></h3>
-                            <h3 class="media-heading"><a href="#"> {{$row['pro_name']}}</a></h3>
-                            <a href="register_coruse.php?course_id=1"><input type="submit"
-                                    method="get" value="อ่านข่าวนี้" class="btn btn-primary"></a>
+                            <h3 class="media-heading"><a  href="{{url('New-app/'.$row->id)}}"> <?php echo $row->title; ?></a></h3>
+
                         </div> <!-- /.media-body -->
+
                     </div> <!-- /.media -->
+
                 </div> <!-- /.col-md-6 -->
-                @endforeach
+                <?php endforeach; ?>
 
 
-        </section> --}}
+
+        </section>
+        <div class="row">
+            <div class="col-12 text-center">
+        {{$users->links()}}
+            </div>
+       </div>
         {{-- <section class="service-wrapper">
             <nav class="pagination-wrap text-center">
                 <ul class="pagination">

@@ -92,21 +92,6 @@
                                         </div><!-- /.submenu-inner -->
                                     </div> <!-- /.submenu-wrapper -->
                                     </li>
-
-
-									<li id="index4"><a href="{{ route('New-teacher.index') }}" >ข่าวประชาสัมพันธ์{{-- <b class="caret"></b> --}} </a>
-										{{-- <!-- submenu-wrapper -->
-										<div class="submenu-wrapper submenu-wrapper-topbottom">
-											<div class="submenu-inner  submenu-inner-topbottom">
-												<ul class="dropdown-menu">
-													<li><a href="job-page.html">Job Page</a></li>
-													<li><a href="clients-page.html">Clients Page</a></li>
-													<li><a href="faq.html">FAQ Page</a></li>
-													<li><a href="typography.html">Typography</a></li>
-												</ul>
-											</div><!-- /.submenu-inner -->
-										</div> <!-- /.submenu-wrapper --> --}}
-									</li>
 									@guest
                                         <li >
                                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -124,7 +109,7 @@
                                     <div class="submenu-wrapper submenu-wrapper-topbottom">
                                         <div class="submenu-inner  submenu-inner-topbottom">
                                             <ul class="dropdown-menu">
-                                                <li><a href="{{ route('about-us.index') }}">ข้อมูลส่วนตัว</a></li>
+                                                <li><a href="{{ route('about-us') }}">ข้อมูลส่วนตัว</a></li>
                                                 <li  id="index3"><a href="{{ route('fullcalendar-student.index') }}">ปฏิทินนัดหมาย</a></li>
                                                 <li>
                                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -155,17 +140,11 @@
 						<div class="row">
 							<div class="col-md-6 col-sm-12">
 								<div class="footer-widget">
-									<p class="subcsribe-text wow fadeInDown">Quickly utilize installed base channels before premier expertise. Conveniently extend web-enabled niche markets without 2.0 e-markets. Collaboratively incentivize .</p>
+
 
 									<h3 class="wow fadeInDown">Subscribe to newsletter</h3>
 
-									<form class="wow fadeInDown">
-									  <div class="form-group">
-									    <label class="sr-only" for="exampleInputEmail1">Email address</label>
-									    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-									  </div>
-									  <button type="submit" class="btn btn-primary">Subscribe</button>
-									</form>
+
 
 									<div class="social-link wow fadeInDown">
 										<ul>
@@ -182,44 +161,13 @@
 							</div><!-- /.col-md-6 -->
 							<div class="col-md-2 col-sm-4 col-xs-4">
 								<div class="footer-widget">
-									<h3 class="wow fadeInDown">Customer Care</h3>
+									<h3 class="wow fadeInDown">คำถามที่พบบ่อย</h3>
 									<ul class="wow fadeInDown">
-										<li><a href="#">Customer Support</a></li>
-										<li><a href="#">Platinum Support</a></li>
-										<li><a href="#">Gold Support</a></li>
-										<li><a href="#">Standard Support</a></li>
-										<li><a href="#">Training</a></li>
-										<li><a href="#">Online Training</a></li>
-										<li><a href="#">Custom Training</a></li>
+										<li><a href="{{url('/qustionindex')}}">ดูรายละเอียด</a></li>
 									</ul>
 								</div><!-- /.footer-widget -->
 							</div><!-- /.col-md-2 -->
-							<div class="col-md-2 col-sm-4 col-xs-4">
-								<div class="footer-widget">
-									<h3 class="wow fadeInDown">Information</h3>
-									<ul class="wow fadeInDown">
-										<li><a href="#">Press</a></li>
-										<li><a href="#">Articles</a></li>
-										<li><a href="#">Reviews</a></li>
-										<li><a href="#">Testimonials</a></li>
-										<li><a href="#">Awards</a></li>
-										<li><a href="#">Video Clips</a></li>
-										<li><a href="#">Blog</a></li>
-									</ul>
-								</div><!-- /.footer-widget -->
-							</div><!-- /.col-md-2 -->
-							<div class="col-md-2 col-sm-4 col-xs-4">
-								<div class="footer-widget">
-									<h3 class="wow fadeInDown">Solutions</h3>
-									<ul class="wow fadeInDown">
-										<li><a href="#">Contact Center</a></li>
-										<li><a href="#">Knowledge</a></li>
-										<li><a href="#">Management</a></li>
-										<li><a href="#">Web Self-Service</a></li>
-										<li><a href="#">Performance Metrics</a></li>
-									</ul>
-								</div><!-- /.footer-widget -->
-							</div><!-- /.col-md-2 -->
+
 						</div><!-- /.row -->
 					</div><!-- /.container -->
 				</section>

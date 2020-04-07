@@ -18,7 +18,7 @@
                 </div>
                 <ol class="breadcrumb">
                     <li><a href="home">Home</a></li>
-                    <li><a href="{{ route('about-us.index') }}">About</a></li>
+                    <li><a href="">About</a></li>
                     <li class="active">About Us</li>
                 </ol>
             </div>
@@ -72,7 +72,7 @@
                         <ul class="joblist-link">
                             <?php foreach ($user2 as $row):?>
 
-                            <li   ><a href="{{url('detail-event/'.$row->pro_id)}}"><?php echo $row->pro_name; ?></a></li>
+                            <li   ><a><?php echo $row->pro_name; ?></a></li>
                             <?php endforeach; ?>
                         </ul>
 

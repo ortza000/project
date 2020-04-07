@@ -17,7 +17,7 @@
 
 
                 <th>ตรวจสอบคนลงทะเบียน</th>
-                <th>เกียรติบัตร</th>
+
 
               </tr>
               <?php foreach ($users12 as $row):?><tr>

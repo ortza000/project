@@ -39,15 +39,15 @@
                     </a>
                 </div>  --}}
                 {{-- <div align="right">  <a href="{{route('project.create')}}" class="btn btn-success" >เพิ่มข้อมูล</a></div> --}}
-                @foreach($users as $row)
+                <?php foreach ($users as $row):?>
                 <div class="media-body">
 
-                    <h2 class="media-heading">{{$row['course_name']}}</h2>
-                    <span>Sports Club</span>
-                    <p>{{$row['course_des']}}</p>
-                    <p><td><a href="{{action('CourseController@edit',$row['course_id'])}}" class="btn btn-primary">ลงทะเบียน</a></td></p>
-                    @endforeach
+                    <h2 class="media-heading"> <?php echo $row->title; ?></h2>
 
+                    <p> <?php echo $row->description; ?></p>
+                    <p><td><a href="{{url('cousreregister/'.$row->course_id)}}" class="btn btn-primary">ลงทะเบียน</a></td></p>
+
+                    <?php endforeach; ?>
 
                 </div>
 

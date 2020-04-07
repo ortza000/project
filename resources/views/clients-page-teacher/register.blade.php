@@ -18,7 +18,7 @@
                 </div>
                 <ol class="breadcrumb">
                     <li><a href="home">Home</a></li>
-                    <li><a href="{{ route('clients-page.index') }}">Pages</a></li>
+                    <li><a href="">Pages</a></li>
                     <li class="active">กิจกรรมและโครงการ</li>
                 </ol>
             </div>

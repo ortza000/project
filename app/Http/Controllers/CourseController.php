@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Project;
 use App\student_course;
-
+use App\Eventcalendar;
 
 
 use Illuminate\Support\Facades\DB;
@@ -20,9 +20,13 @@ class CourseController extends Controller
 
     public function index()
     {
-        $users = Project::paginate(5);
+        $users = DB::table('eventcalendars')
+        ->select('course_id','id','title', 'description')
+        ->where('type','=','อบรม')
+        ->orderBy('start','desc')
+        ->paginate(4);
 
-        return view('course.index1',compact('users'));
+        return view('course.index1',['users' => $users]);
 
     }
 
@@ -59,6 +63,6 @@ class CourseController extends Controller
         ]
       );
         $user->save();
-      return redirect()->route('course')->with('success1','บันทึกข้อมูลเรียบร้อย');
+      return redirect()->route('clients-page.index')->with('success1','บันทึกข้อมูลเรียบร้อย');
     }
 }

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Eventcalendar;
+use Illuminate\Support\Facades\DB;
 class HomeController extends Controller
 {
     /**
@@ -15,6 +16,7 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
     }
+
 
     /**
      * Show the application dashboard.
@@ -31,6 +33,15 @@ class HomeController extends Controller
             return view('home');
         }
     }
+    public function show()
+    {
+        $users = DB::table('eventcalendars as e')
+                ->join('image as i', 'e.id', '=', 'i.id')
+                ->select('e.title', 'i.img','e.id')
+                ->where('e.type','=','ข่าวนัดหมาย')
+                ->orderBy('start','desc')
+                ->paginate(4);
+       return view('home', ['users' => $users]);
 
-
+    }
 }

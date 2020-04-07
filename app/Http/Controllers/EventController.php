@@ -58,14 +58,14 @@ class EventController extends Controller
     {
         $this->validate($request,
       [
-        'proid' => 'required',
+
         'proname' => 'required',
         'prodes' => 'required'
       ]
       );
       $user = new Event(
         [
-        'pro_id'    => $request->get('proid'),
+
         'pro_name'  => $request->get('proname'),
         'pro_des'  => $request->get('prodes')
         ]

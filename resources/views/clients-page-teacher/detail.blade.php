@@ -14,11 +14,11 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="page-header">
-                    <h1>About Us</h1>
+                    <h1>รายชื่อคนละทะเบียนกิจกรรม</h1>
                 </div>
                 <ol class="breadcrumb">
                     <li><a href="home">Home</a></li>
-                    <li><a href="{{ route('about-us.index') }}">About</a></li>
+                    <li><a href="">About</a></li>
                     <li class="active">About Us</li>
                 </ol>
             </div>

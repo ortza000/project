@@ -67,18 +67,6 @@ class TeacherClientsPageControlle extends Controller
         'vehicle1' => 'required'
       ]
       );
-      $user = new std_register(
-        [
-
-
-        'pro_id'  => $request->get('proid'),
-        'std_id'  => $request->get('stdid'),
-        'stdevent_des'  => $request->get('stdprodes'),
-        'register_date'  => $request->get('date'),
-
-        ]
-      );
-        $user->save();
 
         $user1 = new teacher_projectandevent(
             [

@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
         Event.start = start;
         Event.end = end;
 
+
         delete Event.id;
         delete Event._method;
 
@@ -65,6 +66,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
             let newEvent = {
                 _method:'PUT',
+
+                course_id: element.event.course_id,
                 title: element.event.title,
                 id: element.event.id,
                 start: start,
@@ -88,6 +91,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
             let title = element.event.title;
             $("#modalCalendar input[name='title']").val(title);
+
+            let course_id = element.event.course_id;
+            $("#modalCalendar input[name='course_id']").val(course_id);
 
             let start = moment(element.event.start).format("DD/MM/YYYY HH:mm:ss");
             $("#modalCalendar input[name='start']").val(start);

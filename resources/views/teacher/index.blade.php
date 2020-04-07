@@ -26,6 +26,7 @@
             <table class="table table-dark">
               <tr>
                 <th>ID</th>
+                <th>ID Teacher</th>
                 <th>name</th>
                 <th>phone</th>
                 <th>

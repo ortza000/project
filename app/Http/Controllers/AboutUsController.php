@@ -20,12 +20,7 @@ class AboutUsController extends Controller
         $test1 = Auth::user()->id;
 
 
-        $users = DB::select("select s.std_status,s.std_major,s.std_phone,s.std_year,s.std_card,s.std_name,s.std_id,sr.pro_id,p.pro_name
-        FROM users u
-        INNER JOIN student s on u.id=s.id
-       	INNER JOIN student_event_register sr on s.std_id=sr.std_id
-        INNER JOIN projectandevent p on p.pro_id=sr.pro_id
-        WHERE u.id ='$test1'");
+        $users = DB::select("SELECT std_name , std_card , std_year , std_phone ,std_major,std_status FROM student WHERE id = '$test1'");
         // dd($users);
         $users1 = DB::select("select * FROM student_course sc,course c,users u,student s  WHERE s.id=u.id and sc.course_id=c.course_id and u.id='$test1'");
         // $users = DB::select("select s.std_name,s.std_card,s.std_year,s.std_phone,s.std_major,s.std_status from student s,users u where u.id=s.id and u.id ='$test2'");
@@ -33,6 +28,31 @@ class AboutUsController extends Controller
 
 
         return view('about-us.index',['users' => $users],['users1' => $users1]);
+    }
+    public function index1()
+    {
+        $test1 = Auth::user()->id;
+
+
+        $user3 = DB::select("SELECT std_name , std_card , std_year , std_phone ,std_major,std_status FROM student WHERE id = '$test1'");
+
+
+        $user1 = DB::select("SELECT * FROM course c
+        INNER JOIN student_course sc on c.course_id=sc.course_id
+        INNER JOIN student s on s.std_id=sc.std_id
+        INNER JOIN users u on s.id=u.id
+        WHERE u.id='$test1'");
+
+        $user2 = DB::select("SELECT * FROM projectandevent p
+        INNER JOIN student_event_register sr on p.pro_id=sr.pro_id
+        INNER JOIN student s on s.std_id=sr.std_id
+        INNER JOIN users u on s.id=u.id
+        WHERE u.id='$test1'");
+// dd($user1);
+
+        // $users = DB::select("select s.std_name,s.std_card,s.std_year,s.std_phone,s.std_major,s.std_status from student s,users u where u.id=s.id and u.id ='$test2'");
+        // dd($users);
+        return view('about-us.index', compact('user1','user2','user3'));
     }
 
     public function index2()

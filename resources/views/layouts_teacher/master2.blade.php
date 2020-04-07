@@ -129,6 +129,7 @@
                                                 <li id="index4"><a href="{{ route('fullcalendar1.index') }}">ปฏิทินนัดหมาย</a></li>
                                                 <li id="index4"><a href="{{ route('image-upload') }}">อัพโหลดรูปข่าว</a></li>
                                                 <li id="index4"><a href="{{ route('fileupload.index') }}">อัพโหลดเอกสาร</a></li>
+                                                <li id="index4"><a href="{{ route('file-teacher.index') }}">ดาวโหลดเอกสาร</a></li>
 
                                                 <li>
                                                     <a class="dropdown-item" href="{{ route('logout') }}"

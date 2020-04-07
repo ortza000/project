@@ -27,7 +27,7 @@
          </div>  --}}
 
           <div class="form-group">
-            <input type="text" name="coursename" class="form-control" placeholder="ชื่อกิจกรรม" />
+            <input type="text" name="coursename" class="form-control" placeholder="หัวข้ออบรม" />
           </div>
 
           <div class="form-group">
