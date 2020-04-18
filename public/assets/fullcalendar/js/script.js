@@ -40,28 +40,68 @@ $(function(){
 
         let description = $("#modalCalendar textarea[name='description']").val();
 
+        let id1 = $("#modalFastEvent input[name='id']").val();
+
+        let pro_id = $("#modalFastEvent input[name='pro_id']").val();
+
+        let title1 = $("#modalFastEvent input[name='title']").val();
+
+        let start1 = $("#modalFastEvent input[name='start']").val();
+
+        let end1 = $("#modalFastEvent input[name='end']").val();
+
+        let color1 = $("#modalFastEvent input[name='color']").val();
+
+        let term = $("#modalFastEvent input[name='term']").val();
+
+        let description1 = $("#modalCalendar textarea[name='description']").val();
+
+        let type = $("#modalFastEvent select[name='type']").val();
+
         let Event = {
             course_id: course_id,
             title: title,
             start: start,
             end: end,
-            description: description,
+            description1: description1,
             color: color,
+            term: term,
+            type: type,
+
+
+        };
+
+
+        let Event1 = {
+            pro_id: pro_id,
+            title1: title1,
+            start1: start1,
+            end1: end1,
+            description1: description,
+            color1: color1,
+            term: term,
+            type: type,
         };
 
         let route;
 
         if(id == ''){
             route = routeEvents('routeFastEventStore');
+        if(id1 == ''){
+            route = routeEvents('routeFastEventStore');
+        }
         }else{
             route = routeEvents('routeFastEventUpdate');
             Event.id = id;
             Event._method = 'PUT';
+            Event1.id1 = id1;
+            Event1._method = 'PUT';
         }
 
-        sendEvent(route,Event);
+        sendEvent(route,Event,Event1);
 
     });
+
 
 
     $(".saveEvent").click(function () {
@@ -69,6 +109,8 @@ $(function(){
         let id =  $("#modalCalendar input[name='id']").val();
 
         let title = $("#modalCalendar input[name='title']").val();
+
+        let term = $("#modalCalendar input[name='term']").val();
 
         let course_id = $("#modalFastEvent input[name='course_id']").val();
 
@@ -82,6 +124,8 @@ $(function(){
 
         let type = $("#modalCalendar select[name='type']").val();
 
+
+
         let Event = {
             course_id: course_id,
             title: title,
@@ -90,6 +134,7 @@ $(function(){
             color: color,
             description: description,
             type: type,
+            term: term,
         };
 
         let route;

@@ -27,6 +27,11 @@
                 <th>ID</th>
                 <th>name</th>
                 <th>desription</th>
+                <th>start</th>
+                <th>end</th>
+                <th>color</th>
+                <th>type</th>
+                <th>term</th>
 
 
                 <th>Edit</th>
@@ -36,6 +41,11 @@
                   <td>{{$row->pro_id}}</td>
                   <td>{{$row->pro_name}}</td>
                   <td>{{$row->pro_des}}</td>
+                  <td>{{$row->start}}</td>
+                  <td>{{$row->end}}</td>
+                  <td>{{$row->color}}</td>
+                  <td>{{$row->type}}</td>
+                  <td>{{$row->term}}</td>
 
 
                   <td><a href="{{action('EventController@edit',$row->pro_id)}}" class="btn btn-primary">Edit</a></td>
@@ -43,7 +53,7 @@
                     <form  method="post" class="delete_form" action="{{action('EventController@destroy',$row->pro_id)}}">
                       {{csrf_field()}}
                     <input type="hidden" name="_method" value="DELETE" />
-                    <button type="submit" class="btn btn-danger">DELETE</button>
+                    <button type="submit" onclick="return confirm('คุณตกลงที่จะลบข้อมูลหรือไม่?')" class="btn btn-danger">DELETE</button>
                     </form>
                   </td>
                 </tr>

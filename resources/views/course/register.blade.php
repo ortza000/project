@@ -53,7 +53,7 @@
 
          <br><br>
          <div class="form-group">
-            <input type="text" name="stdid" class="form-control" value="<?php echo $std_id; ?>" readonly />
+            <input type="hidden" name="stdid" class="form-control" value="<?php echo $std_id; ?>" readonly />
          </div>
          <?php } ?>
          <div class="form-group">
@@ -78,7 +78,7 @@
 
 
           <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="ตกลง"/>
+            <input type="submit" class="btn btn-primary" onclick="return confirm('คุณตกลงที่จะลงทะเบียนหรือไม่?')" value="ตกลง"/>
           </div>
         </form>
 

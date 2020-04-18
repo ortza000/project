@@ -10,7 +10,7 @@
               <br>
 
             <div class="col-md-8">
-                <form action="/search-student" method="get">
+                <form action="/searchReport-student" method="get">
                     <div class="input-group">
                         <input type="search" name="search" class="form-control" >
                         &nbsp;&nbsp;&nbsp;
@@ -22,8 +22,8 @@
                     </div>
                 </form>
         </div>
-
-            <div align="right">  ></div>
+        <br>
+            <div align="right"></div>
             <table class="table table-dark">
               <tr>
                 <th>ID</th>

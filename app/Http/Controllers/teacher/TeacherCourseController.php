@@ -35,6 +35,7 @@ class TeacherCourseController extends Controller
 
     //    return view('clients-page-teacher.detail',compact('user','id'),['users' => $users]);
     // }
+
     public function edit($id)
     {
         $user = Project::find($id);
@@ -46,6 +47,10 @@ class TeacherCourseController extends Controller
 
 
     }
+    public function create()
+    {
+        return view('course-teacher.create');
+    }
 
     public function store(Request $request)
     {
@@ -53,12 +58,18 @@ class TeacherCourseController extends Controller
       $this->validate($request,
       [
 
+        'coursename'  => 'required',
+        'coursedes'  => 'required',
+        'start'  => 'required',
+        'end'  => 'required',
+        'color'  => 'required',
         'tehid' => 'required',
         'cousreid' => 'required',
         'partdes' => 'required',
         'date' => 'required'
       ]
       );
+
       $user = new student_invite(
         [
         'teh_id'  => $request->get('tehid'),
@@ -80,9 +91,52 @@ class TeacherCourseController extends Controller
             ]
 
           );
-
              $user1->save();
-       return redirect()->route('clients-page-teacher')->with('success1','บันทึกข้อมูลเรียบร้อย');
+
+             $user2 = new Project(
+                [
+
+                'course_name'  => $request->get('coursename'),
+                'course_des' => $request->get('coursedes'),
+                'start' => $request->get('start'),
+                'end' => $request->get('end'),
+                'color' => $request->get('color')
+                ]
+              );
+                $user2->save();
+       return redirect()->route('course-teacher.index')->with('success1','บันทึกข้อมูลเรียบร้อย');
+    }
+    public function store1(Request $request)
+    {
+
+      $this->validate($request,
+      [
+
+        'coursename'  => 'required',
+        'coursedes'  => 'required',
+        'start'  => 'required',
+        'end'  => 'required',
+        'color'  => 'required',
+        'type'  => 'required',
+        'term'  => 'required',
+
+
+      ]
+      );
+             $user = new Project(
+                [
+
+                'course_name'  => $request->get('coursename'),
+                'course_des' => $request->get('coursedes'),
+                'start' => $request->get('start'),
+                'end' => $request->get('end'),
+                'color' => $request->get('color'),
+                'type' => $request->get('type'),
+                'term' => $request->get('term')
+                ]
+              );
+                $user->save();
+       return redirect()->route('course-teacher.index')->with('success1','บันทึกข้อมูลเรียบร้อย');
     }
 
 

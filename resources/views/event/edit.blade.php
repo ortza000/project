@@ -27,6 +27,21 @@
           <div class="form-group">
             <input type="text" name="prodes" class="form-control" placeholder="ชื่อรายวิชา"  value="{{$user->pro_des}}" />
           </div>
+          <div class="form-group">
+            <input type="time" name="start" class="form-control" placeholder="รหัสไอดี อาจารยื" value="{{$user->start}}" />
+           </div>
+          <div class="form-group">
+            <input type="time" name="end" class="form-control" placeholder="ชื่อรายวิชา"  value="{{$user->end}}" />
+          </div>
+          <div class="form-group">
+            <input type="color" name="color" class="form-control" placeholder="รหัสไอดี อาจารยื" value="{{$user->color}}" />
+           </div>
+          <div class="form-group">
+            <input type="text" name="type" class="form-control" placeholder="ชื่อรายวิชา"  value="{{$user->type}}" />
+          </div>
+          <div class="form-group">
+            <input type="text" name="term" class="form-control" placeholder="ชื่อรายวิชา"  value="{{$user->term}}" />
+          </div>
 
 
           <div class="form-group">

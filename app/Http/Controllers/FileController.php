@@ -11,21 +11,83 @@ class FileController extends Controller
 {
     public function index()
     {
-        $users = DB::select("SELECT * FROM course ");
-        $users1 = DB::select("SELECT * FROM projectandevent ");
+        $users = DB::table('course')
+        ->groupBy('term')
+        ->get();
+
+
+    $users1 = DB::table('projectandevent')
+        ->groupBy('term')
+        ->get();
+
         return view('fileupload.file', compact('users','users1'));
+    }
+
+    function fetch(Request $request)
+    {
+
+        $id=$request->get('select');
+
+
+
+        $query = DB::table('course')
+
+         ->select('course_name','course_id')
+         ->where('term','=',$id)
+         ->orderBy('course_name','asc')
+         ->get();
+
+         $output = '<option value="">เลือกประเภท</option>';
+
+         foreach ($query as $row){
+            $output.='<option value="'.$row->course_id.'">'.$row->course_name.'</option>';
+
+         }
+
+
+         echo $output;
+
+
+
+    }
+    function fetch1(Request $request)
+    {
+
+        $id=$request->get('select');
+
+
+
+        $query = DB::table('projectandevent')
+
+         ->select('pro_name','pro_id')
+         ->where('term','=',$id)
+         ->orderBy('pro_name','asc')
+         ->get();
+
+         $output = '<option value="">เลือกประเภท</option>';
+
+         foreach ($query as $row){
+            $output.='<option value="'.$row->pro_id.'">'.$row->pro_name.'</option>';
+
+         }
+
+
+         echo $output;
+
+
+
     }
 
     public function store(Request $request)
     {
        request()->validate([
          'file'  => 'required|mimes:doc,docx,pdf,txt|max:2048',
-         'proid' => 'required',
-         'courseid' => 'required'
+         'proname' => 'required',
+         'coursename' => 'required'
        ]);
 
-       $proid                 =       $request->get('proid');
-       $courseid                 =       $request->get('courseid');
+       $proname                 =       $request->get('proname');
+       $coursename                 =       $request->get('coursename');
 
        if ($files = $request->file('file')) {
            $destinationPath = 'files/'; // upload path
@@ -33,7 +95,7 @@ class FileController extends Controller
            $files->move($destinationPath, $profilefile);
            $insert['name'] = "$profilefile";
         }
-        Document::create(['name' => $insert['name'],'pro_id' => $proid ,'course_id' =>  $courseid]);
+        Document::create(['name' => $insert['name'],'pro_id' => $proname ,'course_id' =>  $coursename]);
 
         return Redirect::to("fileupload")
         ->withSuccess('Great! file has been successfully uploaded.');

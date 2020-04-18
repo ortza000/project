@@ -32,12 +32,26 @@
             <div id="boxFastEvent{{ $fastEvent->id }}"
                 style="padding: 4px; border: 1px solid {{ $fastEvent->color }}; background-color: {{ $fastEvent->color }}"
                 class='fc-event event text-center'
-                data-event='{"id":"{{ $fastEvent->course_id }}","course_id":"{{ $fastEvent->course_id }}","title":"{{ $fastEvent->course_name }}","description":"{{ $fastEvent->course_des }}","color":"{{ $fastEvent->color }}","start":"{{ $fastEvent->start }}","end":"{{ $fastEvent->end }}"}'>
+                data-event='{"id":"{{ $fastEvent->course_id }}","course_id":"{{ $fastEvent->course_id }}","title":"{{ $fastEvent->course_name }}","description":"{{ $fastEvent->course_des }}","color":"{{ $fastEvent->color }}","term":"{{ $fastEvent->term }}","type":"{{ $fastEvent->type }}","start":"{{ $fastEvent->start }}","end":"{{ $fastEvent->end }}"}'>
                 {{ $fastEvent->course_name }}
             </div>
 
             @endforeach
         @endif
+        <h4>รายการกิจกรรม</h4>
+        @if($fastProjects)
+
+        @foreach ($fastProjects as $fastProject)
+
+        <div id="boxFastEvent{{ $fastProject->id }}"
+            style="padding: 4px; border: 1px solid {{ $fastProject->color }}; background-color: {{ $fastProject->color }}"
+            class='fc-event event text-center'
+            data-event='{"id":"{{ $fastProject->pro_id }}","course_id":"{{ $fastProject->pro_id }}","title":"{{ $fastProject->pro_name }}","description":"{{ $fastProject->pro_des }}","color":"{{ $fastProject->color }}","term":"{{ $fastProject->term }}","type":"{{ $fastProject->type }}","start":"{{ $fastProject->start }}","end":"{{ $fastProject->end }}"}'>
+            {{ $fastProject->pro_name }}
+        </div>
+
+        @endforeach
+    @endif
 
 
 

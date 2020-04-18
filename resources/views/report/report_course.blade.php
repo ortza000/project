@@ -9,7 +9,7 @@
            <div class="col-md-12">
             <br> <br>
             <div class="col-md-8">
-                <form action="/search-project" method="get">
+                <form action="/searchReport-project" method="get">
                     <div class="input-group">
                         <input type="search" name="search" class="form-control" >
                         &nbsp;&nbsp;&nbsp;

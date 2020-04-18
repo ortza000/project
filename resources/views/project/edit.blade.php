@@ -27,7 +27,20 @@
           <div class="form-group">
             <input type="text" name="coursedes" class="form-control" placeholder="ชื่อรายวิชา"  value="{{$user->course_des}}" />
           </div>
-
+          <div class="form-group">
+            <input type="text" name="start" class="form-control" placeholder="ชื่อรายวิชา"  value="{{$user->start}}" />
+          </div>.   <div class="form-group">
+            <input type="text" name="end" class="form-control" placeholder="ชื่อรายวิชา"  value="{{$user->end}}" />
+          </div>
+          <div class="form-group">
+            <input type="text" name="color" class="form-control" placeholder="ชื่อรายวิชา"  value="{{$user->color}}" />
+          </div>
+          <div class="form-group">
+            <input type="text" name="type" class="form-control" placeholder="ชื่อรายวิชา"  value="{{$user->type}}" />
+          </div>
+          <div class="form-group">
+            <input type="text" name="term" class="form-control" placeholder="ชื่อรายวิชา"  value="{{$user->term}}" />
+          </div>
 
           <div class="form-group">
             <input type="submit" class="btn btn-primary" value="อัพเดท"/>

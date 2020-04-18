@@ -37,6 +37,16 @@ class UserController extends Controller
 
         return view('user.index',['users' => $post]);
     }
+
+    public function search1(Request $request )
+    {
+        $search = $request->get('search');
+
+
+         $post = DB::table('student')->where('std_name','like','%'.$search.'%')->paginate(5);
+
+        return view('report.report_studentold',['users' => $post]);
+    }
     /**
      * Store a newly created resource in storage.
      *

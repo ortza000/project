@@ -15,12 +15,14 @@
 
             <table class="table table-dark">
               <tr>
-                <th>ID</th>
+
                 <th>รายชื่อผู้ที่ได้ ใบเกียรติบัตร</th>
+                <th>หัวข้อ</th>
               </tr>
                 @foreach($users as $row)<tr>
-                  <td>{{$row->std_id}}</td>
+
                   <td>{{$row->std_name}}</td>
+                  <td>{{$row->course_name}}</td>
                 </tr>
                 @endforeach
             </table>

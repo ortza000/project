@@ -38,7 +38,7 @@
                         <img class="media-object" src="{{asset('img/partner/partner-logo-9.png')}}" alt="">
                     </a>
                 </div>  --}}
-                <div align="right">  <a href="{{route('event.create')}}" class="btn btn-success" >เพิ่มข้อมูล</a></div>
+                <div align="right">  <a href="{{route('clients-page-teacher.create')}}" class="btn btn-success" >เพิ่มข้อมูล</a></div>
                 @foreach($users as $row)
                 <div class="media-body">
 

@@ -43,7 +43,18 @@
           <div class="form-group">
             <input type="color" name="color" class="form-control" placeholder="color" />
           </div>
+          <div class="form-group">
+            <input type="text" name="type" class="form-control" readonly value="อบรม" />
+          </div>
+          <div class="form-group">
+            <select name="term" id="term" class="form-control" >
+                <option value="">เลือก เทอม</option>
 
+                <option value="1/63">เทอม 1/63</option>
+                <option value="2/63">เทอม 2/63</option>
+
+               </select>
+          </div>
 
 
 

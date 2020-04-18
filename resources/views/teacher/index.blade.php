@@ -53,7 +53,7 @@ educational background</th>
                       {{csrf_field()}}
                     <input type="hidden" name="_method" value="DELETE" />
 
-                    <button type="submit" class="btn btn-danger">DELETE</button>
+                    <button type="submit" onclick="return confirm('คุณตกลงที่จะลบข้อมูลหรือไม่?')" class="btn btn-danger">DELETE</button>
                     </form>
                     <td>
                   </td>

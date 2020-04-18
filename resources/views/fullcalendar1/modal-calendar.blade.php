@@ -51,6 +51,13 @@
                           </select>
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label for="term" class="col-sm-4 col-form-label">เทอม</label>
+                    <div class="col-sm-8">
+                      <input type="text" name="term" class="form-control" id="term">
+                    </div>
+                  </div>
+
             </form>
         </div>
         <div class="modal-footer">

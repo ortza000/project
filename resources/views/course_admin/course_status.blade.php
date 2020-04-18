@@ -4,7 +4,7 @@
 @section('content')
     <div class="container">
         <br>  <br>
-      <h1 align="center">การจัดการข้อมูล อบรม</h1>
+      <h1 align="center">การจัดการข้อมูล ปรับสถานะการเข้าร่วมอบรม</h1>
         <div class="row">
            <div class="col-md-12">
               <br>

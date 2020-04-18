@@ -34,6 +34,14 @@ class ProjectController extends Controller
         return view('project.index',['users' => $post]);
     }
 
+    public function search1(Request $request )
+    {
+         $search = $request->get('search');
+         $post = DB::table('course')->where('course_name','like','%'.$search.'%')->paginate(5);
+        return view('report.report_course',['users' => $post]);
+    }
+
+
     /**
      * Store a newly created resource in storage.
      *
@@ -50,7 +58,9 @@ class ProjectController extends Controller
         'coursedes' => 'required',
         'start' => 'required',
         'end' => 'required',
-        'color' => 'required'
+        'color' => 'required',
+        'type' => 'required',
+        'term' => 'required'
 
 
       ]
@@ -62,11 +72,13 @@ class ProjectController extends Controller
         'course_des' => $request->get('coursedes'),
         'start' => $request->get('start'),
         'end' => $request->get('end'),
-        'color' => $request->get('color')
+        'color' => $request->get('color'),
+        'type' => $request->get('type'),
+        'term' => $request->get('term')
         ]
       );
         $user->save();
-      return redirect()->route('course-teacher.index')->with('success1','บันทึกข้อมูลเรียบร้อย');
+      return redirect()->route('project.index')->with('success1','บันทึกข้อมูลเรียบร้อย');
     }
 
     /**
@@ -105,13 +117,23 @@ class ProjectController extends Controller
         [
             'courseid' => 'required',
             'coursename' => 'required',
-            'coursedes' => 'required'
+            'coursedes' => 'required',
+            'start' => 'required',
+            'end' => 'required',
+            'color' => 'required',
+            'type' => 'required',
+            'term' => 'required'
         ]
         );
         $user = Project::find($id);
         $user->course_id = $request->get('courseid');
         $user->course_name = $request->get('coursename');
         $user->course_des = $request->get('coursedes');
+        $user->start = $request->get('start');
+        $user->end = $request->get('end');
+        $user->color = $request->get('color');
+        $user->type = $request->get('type');
+        $user->term = $request->get('term');
 
           $user->save();
         return redirect()->route('project.index')->with('success','บันทึกข้อมูลเรียบร้อย');

@@ -13,12 +13,42 @@ class ImageResizeController extends Controller
 {
     public function index() {
 
-
-        $users = DB::select("SELECT * FROM eventcalendars ");
-
-        return view('image-upload.fileUpload', compact('users'));
+        $country_list = DB::table('eventcalendars')
+        ->groupBy('term')
+        ->get();
+    return view('image-upload.fileUpload')->with('country_list', $country_list);
 
     }
+
+    function fetch(Request $request)
+    {
+
+        $id=$request->get('select');
+
+
+
+        $query = DB::table('eventcalendars')
+
+         ->select('title','id')
+         ->where('term','=',$id)
+         ->orderBy('title','asc')
+         ->get();
+
+         $output = '<option value="">เลือกประเภท</option>';
+
+         foreach ($query as $row){
+            $output.='<option value="'.$row->id.'">'.$row->title.'</option>';
+
+         }
+
+
+         echo $output;
+
+
+
+    }
+
+
 
     public function store(Request $request) {
 
@@ -32,8 +62,11 @@ class ImageResizeController extends Controller
         ]
         );
 
+
+
+
         $proid                 =       $request->get('proid');
-        //  dd($input['proid']);
+
         $image                   =       $request->file('image1');
         $input['imagename']      =       time().'.'.$image->extension();
 

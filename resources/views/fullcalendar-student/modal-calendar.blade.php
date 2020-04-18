@@ -19,13 +19,13 @@
                   <div class="form-group row">
                     <label for="start" class="col-sm-4 col-form-label">วันที่เริ่ม</label>
                     <div class="col-sm-8">
-                      <input type="text" name="start" class="form-control  data-time" id="start">
+                      <input type="text" name="start" class="form-control  data-time" readonly id="start">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="end" class="col-sm-4 col-form-label">วันที่สิ้นสุด</label>
                     <div class="col-sm-8">
-                      <input type="text" name="end" class="form-control data-time" id="end">
+                      <input type="text" name="end" class="form-control data-time" readonly id="end">
                     </div>
                 </div>
                 <div class="form-group row">

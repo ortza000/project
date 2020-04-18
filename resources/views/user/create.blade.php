@@ -41,8 +41,12 @@
             <input type="text" name="stdmajor" class="form-control" placeholder="สาขา" />
           </div>
           <div class="form-group">
-            <input type="text" name="stdstatus" class="form-control" placeholder="สถานะนิสิต" />
-          </div>
+                <select class="form-control" id="stdstatus" name="stdstatus">
+                    <option value="ศึกษาอยู่">ศึกษาอยู่</option>
+                    <option value="ศิษย์เก่า">ศิษย์เก่า</option>
+                  </select>
+        </div>
+
 
           <div class="form-group">
             <input type="submit" class="btn btn-primary" value="ตกลง"/>

@@ -48,7 +48,7 @@ class ReportALL extends Controller
     public function show3($id)
     {
 
-        $users = DB::select("select * FROM certificate c,student s WHERE c.std_id = s.std_id and c.course_id = '$id'");
+        $users = DB::select("select * FROM certificate c,student s ,course ct WHERE ct.course_id = c.course_id and c.std_id = s.std_id and c.course_id = '$id'");
 
       return view('report.detailreport_cert', compact('users'));
     }
@@ -71,5 +71,14 @@ class ReportALL extends Controller
     {
         $users =  DB::select("select * FROM course  ");
       return view('report.report_cert', compact('users'));
+    }
+    public function search(Request $request )
+    {
+        $search = $request->get('search');
+
+
+         $post = DB::table('course')->where('course_name','like','%'.$search.'%')->paginate(5);
+
+        return view('report.report_cert',['users' => $post]);
     }
 }

@@ -19,7 +19,9 @@ class Project extends Model
   'course_des',
   'start',
   'end',
-  'color'
+  'color',
+  'term',
+  'type'
 ];
 
 

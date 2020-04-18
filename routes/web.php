@@ -21,6 +21,7 @@ Route::delete('/event-destroy', 'EventcalendarController@destroy')->name('routeE
 
 // Route::get('/about-us/{course_id}', 'AboutUsController@show')->name('show.id');
 Route::get('/qustion','QustionController@index');
+Route::get('/search-qustion', 'QustionController@search');
 Route::get('/qustionindex','QustionController@index2');
 Route::get('/qustion/create','QustionController@create');
 Route::get('/qustionedit/{id}','QustionController@edit');
@@ -31,18 +32,22 @@ Route::patch('/qustionupdate/{id}','QustionController@update');
 
 Route::resource('project','ProjectController');
 Route::get('/search-project', 'ProjectController@search');
+Route::get('/searchReport-project', 'ProjectController@search1');
 
 Route::resource('event','EventController');
 Route::get('/search-event', 'EventController@search');
+Route::get('/searchReport-event', 'EventController@search1');
 
 Route::resource('user','UserController');
 Route::get('/search-student', 'UserController@search');
+Route::get('/searchReport-student', 'UserController@search1');
 
 Route::resource('teacher','TechersController');
 Route::get('/search-teacher', 'TechersController@search');
 
 Route::resource('Subject','SubjectController');
 Route::get('/search-subject', 'SubjectController@search');
+Route::get('/searchReport-subject', 'SubjectController@search1');
 
 Route::resource('course','CourseController');
 Route::get('/course-invite/{id}', 'CourseController@edit');
@@ -68,8 +73,9 @@ Route::get('/course_admin/create/{std_id}/{course_id}', 'admin\CourseStatusContr
 Route::resource('faq','FaqController');
 Route::resource('portfolio-four','PortfolioFourController');
 Route::resource('clients-page','ClientsPageController');
-Route::resource('image-upload','ImageResizeController');
 
+Route::resource('image-upload','ImageResizeController');
+Route::post('image-upload/fetch', 'ImageResizeController@fetch')->name('dropdown.fetch');
 
 Route::resource('course','CourseController');
 Route::get('/cousreregister/{id}', 'CourseController@edit');
@@ -82,8 +88,12 @@ Route::post('save', 'ImageController@save');
 
 //route teacher
 Route::resource('clients-page-teacher','teacher\TeacherClientsPageControlle');
+Route::post('clients-page-teacher/create/create1','teacher\TeacherClientsPageControlle@store1');
 Route::resource('faq-teacher','teacher\TeacherFaqController');
+
 Route::resource('course-teacher','teacher\TeacherCourseController');
+Route::post('course-teacher/create/create1','teacher\TeacherCourseController@store1');
+
 Route::resource('file-teacher','teacher\fileshowController');
 Route::resource('about-us-teacher','teacher\TeacherAboutUsController');
 Route::get('/detail-course/{id}', 'teacher\TeacherAboutUsController@show');
@@ -91,6 +101,8 @@ Route::resource('about-us','AboutUsController');
 
  Auth::routes();
  Route::resource('fileupload', 'fileController');
+ Route::post('fileupload/fetch', 'fileController@fetch')->name('file.fetch');
+ Route::post('fileupload/fetch1', 'fileController@fetch1')->name('file1.fetch');
  Route::post('save', 'fileController@save')->name('fileupload');
 // Route::get('/home', 'HomeController@index')->name('index2');
 // Route::get('/home', 'HomeController@show');
@@ -112,7 +124,7 @@ Route::get('/report_studentold','ReportALL@index3');
 
 Route::get('/report_cert','ReportALL@index4');
 Route::get('/detailreport_cert/{id}','ReportALL@show3');
-
+Route::get('/searchReport-cert', 'ReportALL@search');
 
 //fullcalender
 

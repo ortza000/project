@@ -31,6 +31,14 @@ class EventController extends Controller
         return view('event.index',['users' => $post]);
     }
 
+    public function search1(Request $request )
+    {
+         $search = $request->get('search');
+         $post = DB::table('projectandevent')->where('pro_name','like','%'.$search.'%')->paginate(5);
+        return view('report.report_event',['users' => $post]);
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -60,18 +68,28 @@ class EventController extends Controller
       [
 
         'proname' => 'required',
-        'prodes' => 'required'
+        'prodes' => 'required',
+        'start' => 'required',
+        'end' => 'required',
+        'color' => 'required',
+        'type' => 'required',
+        'term' => 'required'
       ]
       );
       $user = new Event(
         [
 
-        'pro_name'  => $request->get('proname'),
-        'pro_des'  => $request->get('prodes')
+            'pro_name'  => $request->get('proname'),
+            'pro_des'  => $request->get('prodes'),
+            'start'  => $request->get('start'),
+            'end'  => $request->get('end'),
+            'color'  => $request->get('color'),
+            'type'  => $request->get('type'),
+            'term'  => $request->get('term'),
         ]
       );
         $user->save();
-      return redirect()->route('clients-page-teacher')->with('success1','บันทึกข้อมูลเรียบร้อย');
+      return redirect()->route('event.index')->with('success1','บันทึกข้อมูลเรียบร้อย');
     }
 
 
@@ -111,7 +129,12 @@ class EventController extends Controller
         [
             'proid' => 'required',
             'proname' => 'required',
-            'prodes' => 'required'
+            'prodes' => 'required',
+            'start' => 'required',
+            'end' => 'required',
+            'color' => 'required',
+            'type' => 'required',
+            'term' => 'required'
 
         ]
         );
@@ -119,6 +142,12 @@ class EventController extends Controller
         $user->pro_id = $request->get('proid');
         $user->pro_name = $request->get('proname');
         $user->pro_des = $request->get('prodes');
+        $user->start = $request->get('start');
+        $user->end = $request->get('end');
+        $user->color = $request->get('color');
+        $user->type = $request->get('type');
+        $user->term = $request->get('term');
+
           $user->save();
         return redirect()->route('event.index')->with('success','บันทึกข้อมูลเรียบร้อย');
     }

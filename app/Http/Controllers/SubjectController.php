@@ -18,12 +18,21 @@ class SubjectController extends Controller
       $users = Subject::paginate(5);
       return view('Subject.index', compact('users'));
     }
+
    public function search(Request $request )
     {
          $search = $request->get('search');
          $post = DB::table('subject')->where('sub_name','like','%'.$search.'%')->paginate(5);
         return view('Subject.index',['users' => $post]);
     }
+
+
+   public function search1(Request $request )
+   {
+        $search = $request->get('search');
+        $post = DB::table('subject')->where('sub_name','like','%'.$search.'%')->paginate(5);
+       return view('report.report_subject',['users' => $post]);
+   }
     /**
      * Show the form for creating a new resource.
      *

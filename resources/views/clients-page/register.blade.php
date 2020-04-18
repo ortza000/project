@@ -78,7 +78,7 @@
 
 
           <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="ตกลง"/>
+            <input type="submit" class="btn btn-primary" onclick="return confirm('คุณตกลงที่จะลงทะเบียนหรือไม่?')" value="ตกลง"/>
           </div>
         </form>
 

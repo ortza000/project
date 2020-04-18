@@ -3,17 +3,29 @@
 @section('content')
     <div class="container">
         <br>  <br>
-      <h1 align="center">การจัดการข้อมูล รายวิชา</h1>
+      <h1 align="center">การจัดการข้อมูล คำถามที่พบบ่อย</h1>
         <div class="row">
            <div class="col-md-12">
             <br><br>
+            <div class="col-md-8">
+                <form action="/search-qustion" method="get">
+                    <div class="input-group">
+                        <input type="search" name="search" class="form-control" >
+                        &nbsp;&nbsp;&nbsp;
 
-<br> <a href="{{url('/qustion/create')}}" class="btn btn-success" >เพิ่มข้อมูล</a>
+                        <span class="input-group-prepend">
+                            &nbsp;&nbsp;&nbsp;<button type="sumbit" class="btn btn-primary">ค้นหา</button>
+                        </span>
+                        &nbsp;&nbsp;&nbsp;  <a href="{{url('/qustion/create')}}" class="btn btn-success" >เพิ่มข้อมูล</a>
+                    </div>
+        </div>
+        <br>
+
             <table class="table table-dark">
               <tr>
                 <th>ID</th>
-                <th>ไอดีอาจารย์</th>
-                <th>ชื่อรายวิชา</th>
+                <th>หัวข้อคำถาม</th>
+                <th>รายละเอียดคำถาม</th>
 
                 <th>Edit</th>
                 <th>Delete</th>
@@ -31,7 +43,7 @@
                       {{csrf_field()}}
                     <input type="hidden" name="_method" value="PATCH" />
 
-                    <button type="submit" class="btn btn-danger">DELETE</button>
+                    <button type="submit" onclick="return confirm('คุณตกลงที่จะลบข้อมูลหรือไม่?')" class="btn btn-danger">DELETE</button>
                     </form>
                     <td>
                 </tr>

@@ -13,8 +13,8 @@
                 {{csrf_field()}}
             <table class="table table-dark">
               <tr>
-                <th>ID STUDENT</th>
-                <th>ID COURSE</th>
+                <th>รายชื่อผู้ที่ได้รับ ใบเกียรติบัตร</th>
+                <th>หัวข้อ</th>
 
 
 
@@ -24,8 +24,9 @@
 
 
               @foreach($users as $row)<tr>
-                  <td>{{$row->std_id}}</td>
-                  <td>{{$row->course_id}}</td>
+                  <td>{{$row->std_name}}</td>
+                  <td>{{$row->course_name}}</td>
+
                     <td>
                   {!! Form::checkbox( 'std_id[]', "{$row->std_id}") !!}
                    {!! Form::checkbox( 'course_id[]', "{$row->course_id}") !!}

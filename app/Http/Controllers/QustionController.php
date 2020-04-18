@@ -65,6 +65,13 @@ class QustionController extends Controller
 
     }
 
+    public function search(Request $request )
+    {
+         $search = $request->get('search');
+         $post = DB::table('qustion')->where('name_qus','like','%'.$search.'%')->paginate(5);
+        return view('qustion.index_admin',['users' => $post]);
+    }
+
     /**
      * Display the specified resource.
      *

@@ -8,6 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Ajax Dynamic Dependent Dropdown in Laravel</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style type="text/css">
+     .box{
+      width:600px;
+      margin:0 auto;
+      border:1px solid #ccc;
+     }
+    </style>
   </head>
   <body>
       <div class="container mt-5">
@@ -52,19 +63,36 @@
                             </div>
 
 
-                        <div class="form-group">
-                            <label for="image"> เลือกหัวข้อกิจกรรม </label>
 
-                            <div class="col-sm-20" >
 
-                                <select id="proid"  name="proid" class="form-control">
-                                    <option value="0"><center>กรุณาเลือกหัวข้อกิจกรรม</center></option>
-                                    <?php foreach ($users as $row):?>
-                                    <option value="<?php echo $row->id; ?>"><?php echo $row->title; ?></option>
-                                    <?php endforeach; ?>
-                                  </select>
-                            </div>
 
+
+
+                                    <h3 align="center"></h3><br />
+                                    <div class="form-group">
+                                     <select name="province" id="province" class="form-control province" >
+                                      <option value="">เลือก เทอม</option>
+                                      @foreach($country_list as $country)
+                                      <option value="{{ $country->term}}">เทอม {{ $country->term }}</option>
+                                      @endforeach
+                                     </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <select name="proid" id="proid"   class="form-control proid" >
+                                         <option value="">เลือก หัวข้อ</option>
+
+                                        </select>
+                                       </div>
+
+
+
+                                    <br />
+                                    <br />
+
+
+
+                                {{ csrf_field() }}
                     </div>
                 </div>
                         <div class="card-footer">
@@ -80,5 +108,57 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   </body>
+  <script type="text/javascript">
+        $('.province').change(function(){
+            if($(this).val()!=''){
+                var select=$(this).val();
+
+                console.log(select);
+
+                var _token=$('input[name="_token"]').val();
+                $.ajax({
+                        url:"{{route('dropdown.fetch')}}",
+                        method:"POST",
+                        data:{select:select,_token:_token},
+                        success:function(result1){
+
+                            $('.proid').html(result1);
+
+
+
+                        }
+
+                })
+            }
+
+        });
+
+        $('.type').change(function(){
+            if($(this).val()!=''){
+                var select1=$(this).val();
+                console.log(select1);
+
+                var _token=$('input[name="_token"]').val();
+
+                $.ajax({
+                    url:"{{route('dropdown.fetch')}}",
+                    method:"POST",
+                    data:{select1:select1,_token:_token},
+                    success:function(result){
+
+                    }
+                })
+            }
+        });
+
+
+
+
+
+
+  </script>
 </html>
+
+

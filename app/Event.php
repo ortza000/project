@@ -19,7 +19,9 @@ class Event extends Model
   'pro_des',
   'start',
   'end',
-  'color'
+  'color',
+  'term',
+  'type'
 ];
 
 

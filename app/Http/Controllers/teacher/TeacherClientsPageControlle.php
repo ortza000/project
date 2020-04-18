@@ -52,7 +52,48 @@ class TeacherClientsPageControlle extends Controller
 
 
     }
+    public function create()
+    {
+        return view('clients-page-teacher.create');
+    }
 
+
+    public function  store1(Request $request)
+    {
+
+      $this->validate($request,
+      [
+
+        'proname' => 'required',
+        'prodes' => 'required',
+        'start' => 'required',
+        'end' => 'required',
+        'color' => 'required',
+        'type' => 'required',
+        'term' => 'required'
+      ]
+      );
+
+        $user1 = new Event(
+            [
+
+
+            'pro_name'  => $request->get('proname'),
+            'pro_des'  => $request->get('prodes'),
+            'start'  => $request->get('start'),
+            'end'  => $request->get('end'),
+            'color'  => $request->get('color'),
+            'type'  => $request->get('type'),
+            'term'  => $request->get('term'),
+
+
+            ]
+
+          );
+
+             $user1->save();
+       return redirect()->route('clients-page-teacher')->with('success1','บันทึกข้อมูลเรียบร้อย');
+    }
 
     public function store(Request $request)
     {

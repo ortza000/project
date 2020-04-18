@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
       droppable: true, // this allows things to be dropped onto the calendar
       drop: function(element) {
         let Event = JSON.parse(element.draggedEl.dataset.event);
+        let Event1 = JSON.parse(element.draggedEl.dataset.event);
 
         // is the "remove after drop" checkbox checked?
         if (document.getElementById('drop-remove').checked) {
@@ -48,16 +49,20 @@ document.addEventListener('DOMContentLoaded', function() {
         let start = moment(`${element.dateStr} ${Event.start}`).format("YYYY-MM-DD HH:mm:ss");
         let end = moment(`${element.dateStr} ${Event.end}`).format("YYYY-MM-DD HH:mm:ss");
 
+        let start1 = moment(`${element.dateStr} ${Event1.start1}`).format("YYYY-MM-DD HH:mm:ss");
+        let end1 = moment(`${element.dateStr} ${Event1.end1}`).format("YYYY-MM-DD HH:mm:ss");
+
         Event.start = start;
         Event.end = end;
-
+        Event1.start1 = start1;
+        Event1.end1 = end1;
 
         delete Event.id;
         delete Event._method;
 
         console.log(element.draggedEl.dataset.event);
 
-        sendEvent(routeEvents('routeEventStore'), Event);
+         sendEvent(routeEvents('routeEventStore'), Event,Event1);
 
       },
       eventDrop: function(element){
@@ -110,6 +115,8 @@ document.addEventListener('DOMContentLoaded', function() {
             let type = element.event.extendedProps.type;
             $("#modalCalendar select[name='type']").val(type);
 
+            let term = element.event.extendedProps.term;
+            $("#modalCalendar input[name='term']").val(term);
 
       },
       eventResize: function(element){
@@ -121,7 +128,8 @@ document.addEventListener('DOMContentLoaded', function() {
             title: element.event.title,
             id: element.event.id,
             start: start,
-            end: end
+            end: end,
+            term: element.event.term
         };
         sendEvent(routeEvents('routeEventUpdate'),newEvent);
       },

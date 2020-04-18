@@ -25,7 +25,7 @@ class CourseCertificateController extends Controller
     {
 
 
-       $users = DB::select("SELECT * FROM `student_invite` WHERE course_id = '$id' and std_id IS NOT NULL");
+       $users = DB::select("SELECT * FROM student_invite si,student s , course c WHERE si.course_id=c.course_id  and si.std_id=s.std_id and si.course_id = '$id' and si.std_id IS NOT NULL");
         return view('course_certificate.detail_cert', compact('users'));
     }
     public function store(Request $request)
