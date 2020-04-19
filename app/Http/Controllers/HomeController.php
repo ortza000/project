@@ -33,6 +33,7 @@ class HomeController extends Controller
             return view('home');
         }
     }
+
     public function show()
     {
         $users = DB::table('eventcalendars as e')
@@ -41,7 +42,39 @@ class HomeController extends Controller
                 ->where('e.type','=','ข่าวนัดหมาย')
                 ->orderBy('start','desc')
                 ->paginate(4);
-       return view('home', ['users' => $users]);
+         $num = 1 ;
+       return view('home',  compact('users','num'));
 
     }
+    public function show1($id)
+    {
+
+        if($id == 1){
+
+        $users = DB::table('eventcalendars as e')
+                ->join('image as i', 'e.id', '=', 'i.id')
+                ->select('e.title', 'i.img','e.id')
+                ->where('e.type','=','อบรม')
+                ->orderBy('start','desc')
+                ->paginate(4);
+
+                $num = 2 ;
+       return view('home',  compact('users','num'));
+        }
+        else{
+            $users = DB::table('eventcalendars as e')
+            ->join('image as i', 'e.id', '=', 'i.id')
+            ->select('e.title', 'i.img','e.id')
+            ->where('e.type','=','กิจกรรม')
+            ->orderBy('start','desc')
+            ->paginate(4);
+            $num = 3 ;
+   return view('home',  compact('users','num'));
+
+
+        }
+
+
+
+}
 }

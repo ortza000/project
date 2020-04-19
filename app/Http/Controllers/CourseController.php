@@ -26,7 +26,7 @@ class CourseController extends Controller
         ->orderBy('start','desc')
         ->paginate(4);
 
-        return view('course.index1',['users' => $users]);
+        return view('course.index',['users' => $users]);
 
     }
 
@@ -63,6 +63,6 @@ class CourseController extends Controller
         ]
       );
         $user->save();
-      return redirect()->route('clients-page.index')->with('success1','บันทึกข้อมูลเรียบร้อย');
+      return redirect()->route('course.index')->with('success1','บันทึกข้อมูลเรียบร้อย');
     }
 }

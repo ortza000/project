@@ -50,6 +50,17 @@
                             <p> <a>สถานะ </a><?php echo $row->std_status; ?></p>
 
                             <?php endforeach; ?>
+
+
+                            <h3 align="left" class="section-title">รายการสำเร็จการเข้าร่วมอบรม</h3>
+                            <ul class="joblist-link">
+
+                                <?php foreach ($user4 as $row):?>
+
+                                <li   ><a><?php echo $row->course_name; ?></a></li>
+                                <?php endforeach; ?>
+                            </ul>
+
                         </div>
 
                         <div class="col-sm-4">

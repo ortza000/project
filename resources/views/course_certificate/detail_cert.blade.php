@@ -9,7 +9,7 @@
         <div class="row">
            <div class="col-md-12">
               <br>
-              <form method="post" action="/checkbox-example">
+              <form name='frmMain' method="post" action="/checkbox-example">
                 {{csrf_field()}}
             <table class="table table-dark">
               <tr>
@@ -28,8 +28,11 @@
                   <td>{{$row->course_name}}</td>
 
                     <td>
-                  {!! Form::checkbox( 'std_id[]', "{$row->std_id}") !!}
-                   {!! Form::checkbox( 'course_id[]', "{$row->course_id}") !!}
+
+
+                  {!! Form::checkbox( 'std_id[]', "{$row->std_id}" ) !!}
+                   {!! Form::hidden( 'course_id[]', "{$row->course_id}") !!}
+
     </td>
                 </tr>
 

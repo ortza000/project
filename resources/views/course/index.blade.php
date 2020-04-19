@@ -15,7 +15,7 @@
                 </div>
                 <ol class="breadcrumb">
                     <li><a href="home">Home</a></li>
-                    <li><a href="{{ route('clients-page.index') }}">Pages</a></li>
+
                     <li class="active">อบรม</li>
 
 
@@ -53,7 +53,7 @@
 
             </div>
 
-            @include('course.modal')
+
             <div class="row">
                 <div class="col-12 text-center">
             {{$users->links()}}

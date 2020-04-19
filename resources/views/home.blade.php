@@ -76,15 +76,26 @@
 
         <section class="service-wrapper">
             <h2 class="section-title wow fadeInDown">ข่าวประชาสัมพันธ์</h2>
+            <br>
+            <div>
+            <a class="btn btn-primary wow fadeInDown" href="{{url('home/1')}}" role="button">ข่าวอบรม</a>
+            <a class="btn btn-primary wow fadeInDown" href="{{url('home/2')}}" role="button">ข่าวกิจกรรม</a>
+            <a class="btn btn-primary wow fadeInDown" href="{{url('homeapp')}}" role="button">ข่าวนัดหมาย</a>
+            </div>
+
+
+
             <?php foreach ($users as $row):?>
             <div class="row">
                 <div class="col-md-6 wow fadeInRight">
                     <div class="media">
-                        <a class="media-left" href="#">
-                            <img src="image/<?php echo $row->img; ?>" alt="">
+                        <a class="media-right" href="#">
+                            <img  src="{{asset('image/'.$row->img)}}"  alt="">
+
+
                         </a>
 
-                        <div class="media-body">
+                        <div class="media-right">
                             <h3 class="media-heading"><a  href="{{url('New-app/'.$row->id)}}"> <?php echo $row->title; ?></a></h3>
 
                         </div> <!-- /.media-body -->

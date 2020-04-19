@@ -49,10 +49,15 @@ class AboutUsController extends Controller
         INNER JOIN users u on s.id=u.id
         WHERE u.id='$test1'");
 // dd($user1);
+        $user4 = DB::select("select * FROM certificate c
+        INNER JOIN course co on co.course_id=c.course_id
+        INNER JOIN student s on s.std_id=c.std_id
+        INNER JOIN users u on s.id=u.id
+        WHERE u.id='$test1'");
 
         // $users = DB::select("select s.std_name,s.std_card,s.std_year,s.std_phone,s.std_major,s.std_status from student s,users u where u.id=s.id and u.id ='$test2'");
         // dd($users);
-        return view('about-us.index', compact('user1','user2','user3'));
+        return view('about-us.index', compact('user1','user2','user3','user4'));
     }
 
     public function index2()

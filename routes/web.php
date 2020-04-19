@@ -56,6 +56,12 @@ Route::resource('New-teacher','NewController');
 Route::get('/New-app/{id}', 'NewController@show2');
 Route::get('/New-event/{id}', 'NewController@show2');
 Route::get('/New-course/{id}', 'NewController@show2');
+
+Route::get('/home/{id}', 'HomeController@show1');
+Route::get('/home/{id}', 'HomeController@show1');
+Route::get('/homeapp', 'HomeController@show');
+
+
 Route::get('/index-course', 'NewController@show')->name('Newcourse');
 Route::get('/index-event', 'NewController@show1')->name('Newevent');
 Route::resource('course_admin','admin\CourseStatusController');
@@ -79,6 +85,7 @@ Route::post('image-upload/fetch', 'ImageResizeController@fetch')->name('dropdown
 
 Route::resource('course','CourseController');
 Route::get('/cousreregister/{id}', 'CourseController@edit');
+
 
 //image
 Route::get('images', 'ImageController@index');

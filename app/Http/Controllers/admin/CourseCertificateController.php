@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Str;
+use PhpParser\Node\Expr\Isset_;
+
 class CourseCertificateController extends Controller
 {
     public function index()
@@ -31,14 +33,23 @@ class CourseCertificateController extends Controller
     public function store(Request $request)
 {
 
+
+
     $course_id = Input::get('course_id');
     $std_id = Input::get('std_id');
 
 
-	foreach ($course_id as $index => $code )
+
+
+    foreach ($std_id as $index => $code )
+
 	{
-        DB::insert('INSERT INTO `certificate` (course_id,std_id) VALUES (?,?)', array($code,$std_id[$index]));
+        DB::insert('INSERT INTO `certificate` (std_id,course_id) VALUES (?,?)', array($code,$course_id[$index]));
     }
-    return "data saved";
+
+
+    return redirect()->route('course_certificate.index');
+
+
 }
 }
