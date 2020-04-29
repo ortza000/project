@@ -60,6 +60,7 @@ $(function(){
 
         let Event = {
             course_id: course_id,
+            pro_id:pro_id,
             title: title,
             start: start,
             end: end,

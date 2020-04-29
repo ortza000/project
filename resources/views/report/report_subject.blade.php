@@ -22,7 +22,7 @@
 <br>
             <table class="table table-dark">
               <tr>
-                <th>ID</th>
+
 
                 <th>ชื่อรายวิชา</th>
                 <th>รายละเอียด</th>
@@ -32,8 +32,8 @@
                 @foreach($users as $row)
                 <tr>
 
-                    <td>{{$row->sub_id}}</td>
-                    <td><a href="{{url('detailreport_subject/'.$row->teh_id)}}">{{$row->sub_name}}</a></td>
+
+                    <td><a href="{{url('detailreport_subject/'.$row->sub_name)}}">{{$row->sub_name}}</a></td>
                   <td>{{$row->sub_des}}</td>
                   <td>{{$row->sub_term}}</td>
                   </td>

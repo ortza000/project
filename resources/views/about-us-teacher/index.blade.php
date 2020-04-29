@@ -49,7 +49,7 @@
                             <p> <a>ชื่อ </a><?php echo $row->teh_name; ?></p>
                             <p> <a>เบอร์</a> <?php echo $row->teh_phone; ?></p>
                             <p> <a>คุณวุฒิ</a> <?php echo $row->teh_qualification; ?></p>
-                            <p> <a>สถานะ</a> <?php echo $row->teh_email; ?></p>
+                            <p> <a>email</a> <?php echo $row->teh_email; ?></p>
                             <?php endforeach; ?>
                         </div>
 

@@ -96,7 +96,7 @@
                         </a>
 
                         <div class="media-right">
-                            <h3 class="media-heading"><a  href="{{url('New-app/'.$row->id)}}"> <?php echo $row->title; ?></a></h3>
+                            <h3 class="media-heading"><a  href="{{url('New-detail/'.$row->id)}}"> <?php echo $row->title; ?> <?php echo $row->term; ?></a></h3>
 
                         </div> <!-- /.media-body -->
 

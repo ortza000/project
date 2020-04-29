@@ -10,8 +10,8 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="page-header">
-                    <?php foreach ($users as $row):?>
-                    <h1>หัวข้อข่าว <?php echo $row->title; ?></h1>
+
+                    <h1>หัวข้อข่าว</h1>
                 </div>
                 <ol class="breadcrumb">
 
@@ -26,6 +26,7 @@
     <div class="content-wrapper">
 
         <div class="inner-content">
+            <?php foreach ($users as $row):?>
             <h1>รายละเอียดข่าว</h1>
 
             <div class="row four-column">

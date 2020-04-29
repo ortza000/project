@@ -43,7 +43,7 @@
           $teh_id         = $users1->teh_id;
           $teh_name         = $users1->teh_name;
   ?>
-        <form method="post" action="{{url('course-teacher')}}" >
+        <form method="post" action="{{url('course-teacher/register')}}" >
           {{csrf_field()}}
 
 
@@ -72,10 +72,9 @@
           <div class="form-group">
             <input type="text"  name="date"  class="form-control" id="date" value="<?=date('Y-m-d')?>" readonly/>
           </div>
-          <input type="checkbox" id="vehicle1" name="vehicle1" value="{{$user->course_id}}">
-            <label for="vehicle1"> เป็นผู้ดูเเลอบรม</label><br>
 
 
+            {!! Form::checkbox( 'vehicle1', "{$user->course_id}" ) !!}
 
 
           <div class="form-group">

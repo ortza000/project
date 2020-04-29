@@ -86,8 +86,9 @@
                                     <div class="submenu-wrapper submenu-wrapper-topbottom">
                                         <div class="submenu-inner  submenu-inner-topbottom">
                                             <ul class="dropdown-menu">
-                                                <li id="index2"><a href="{{ route('clients-page-teacher') }}">การจัดการลงทะเบียน</a></li>
-                                                <li id="index6"><a href="{{ route('course-teacher.index') }}">การจัดการลงอบรม</a></li>
+                                                <li id="index2"><a href="{{ route('clients-page-teacher') }}">การจัดการลงทะเบียนกิจกรรม</a></li>
+                                                <li id="index6"><a href="{{ route('course-teacher.index') }}">การจัดการลงทะเบียนอบรม</a></li>
+
                                             </ul>
                                         </div><!-- /.submenu-inner -->
                                     </div> <!-- /.submenu-wrapper -->

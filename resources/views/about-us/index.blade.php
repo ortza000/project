@@ -57,7 +57,7 @@
 
                                 <?php foreach ($user4 as $row):?>
 
-                                <li   ><a><?php echo $row->course_name; ?></a></li>
+                                <li   ><a href="{{url('pdf-course/'.$row->course_id)}}"><?php echo $row->course_name; ?></a></li>
                                 <?php endforeach; ?>
                             </ul>
 

@@ -11,6 +11,7 @@ use App\Project;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
+
 use Illuminate\Support\Str;
 use PhpParser\Node\Expr\Isset_;
 
@@ -35,8 +36,8 @@ class CourseCertificateController extends Controller
 
 
 
-    $course_id = Input::get('course_id');
-    $std_id = Input::get('std_id');
+    $course_id = $request->input('course_id');
+    $std_id = $request->input('std_id');
 
 
 

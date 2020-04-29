@@ -41,30 +41,42 @@
 
 
                     <div class="row">
-                    <div class="col-sm-8">
-                        <h3 align="left" class="section-title">เอกสาร อบรม</h3>
+                    <div class="col-sm-5">
+                        <h3 align="left" class="section-title">เอกสาร อบรม เทอม 1</h3>
                         <ul class="joblist-link">
                             <?php foreach ($users as $row):?>
 
-                            <li><?php echo $row->course_name; ?> :<a href="/files/<?php echo $row->name; ?>" download>Download the pdf</a></li>
+                            <li><a href="{{url('file-course/'.$row->id)}}"><?php echo $row->title; ?></a></li>
                             <?php endforeach; ?>
                         </ul>
 
-<br><br>
-                    </div>
-                    <div class="col-sm-8">
-                        <h3 align="left" class="section-title">เอกสาร กิจกรรม</h3>
+                        <h3 align="left" class="section-title">เอกสาร อบรม เทอม 2</h3>
                         <ul class="joblist-link">
                             <?php foreach ($users1 as $row):?>
-
-                            <li><?php echo $row->pro_name; ?> :<a href="/files/<?php echo $row->name; ?>" download>Download the pdf</a></li>
+                            <li><a href="{{url('file-course/'.$row->id)}}"><?php echo $row->title; ?></a></li>
                             <?php endforeach; ?>
-
-
                         </ul>
 
+                    </div>
+
+                    <div class="col-sm-5">
+                        <h3 align="left" class="section-title">เอกสาร กิจกรรม เทอม 1</h3>
+                        <ul class="joblist-link">
+                            <?php foreach ($users2 as $row):?>
+
+                            <li><a href="{{url('file-course/'.$row->id)}}"><?php echo $row->title; ?></a></li>
+                            <?php endforeach; ?>
+                        </ul>
+
+                        <h3 align="left" class="section-title">เอกสาร กิจกรรม เทอม 2</h3>
+                        <ul class="joblist-link">
+                            <?php foreach ($users3 as $row):?>
+                            <li><a href="{{url('file-course/'.$row->id)}}"><?php echo $row->title; ?></a></li>
+                            <?php endforeach; ?>
+                        </ul>
 
                     </div>
+
                 </div>
                 </section>
             </div><!-- /.row -->

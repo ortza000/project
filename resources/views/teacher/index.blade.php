@@ -25,7 +25,7 @@
         <br><br>
             <table class="table table-dark">
               <tr>
-                <th>ID</th>
+
                 <th>ID Teacher</th>
                 <th>name</th>
                 <th>phone</th>
@@ -38,7 +38,6 @@ educational background</th>
               </tr>
                 @foreach($users as $row)<tr>
 
-                    <td>{{$row->id_tech}}</td>
                     <td>{{$row->teh_id}}</td>
                     <td>{{$row->teh_name}}</td>
                     <td>{{$row->teh_phone}}</td>

@@ -15,8 +15,16 @@ class SubjectController extends Controller
      */
     public function index()
     {
-      $users = Subject::paginate(5);
-      return view('Subject.index', compact('users'));
+
+        $query = DB::table('subject')
+
+         ->select('sub_id','sub_name','sub_des','sub_term')
+         ->groupBy('sub_name')
+         ->paginate(5);
+
+
+
+      return view('Subject.index')->with('query', $query);
     }
 
    public function search(Request $request )
@@ -41,12 +49,16 @@ class SubjectController extends Controller
     public function create()
 
     {
+        $users1 = DB::table('subject')
 
-        $test1 = Auth::user()->id_tech;
-        $users = DB::select("select t.teh_id,t.teh_name from users u,teacher t where u.id_tech=t.id_tech and t.id_tech = '$test1'");
-        $user = DB::select("select sub_id from subject where sub_id='1'");
+        ->select('sub_id','sub_name','sub_des','sub_term')
+        ->groupBy('sub_name')
+        ->paginate(5);
 
-        return view('Subject.create',compact('user'),['users' => $users]);
+
+        $users = DB::select("select * from teacher");
+     ;
+        return view('Subject.create',['users' => $users],['users1' => $users1]);
 
     }
 
@@ -59,6 +71,31 @@ class SubjectController extends Controller
     public function store(Request $request)
     {
 
+        $subname = $request->input('subname');
+
+      if($subname == ''){
+
+
+      $this->validate($request,
+      [
+
+        'tehid' => 'required',
+        'subname1' => 'required',
+        'subdes' => 'required',
+        'subterm' => 'required'
+      ]
+      );
+      $user = new Subject(
+        [
+
+        'teh_id'  => $request->get('tehid'),
+        'sub_name'  => $request->get('subname1'),
+        'sub_des'  => $request->get('subdes'),
+        'sub_term' => $request->get('subterm')
+        ]
+      );
+        $user->save();
+    }else{
 
       $this->validate($request,
       [
@@ -79,7 +116,11 @@ class SubjectController extends Controller
         ]
       );
         $user->save();
-      return redirect()->route('faq-teacher.index')->with('success1','บันทึกข้อมูลเรียบร้อย');
+    }
+
+
+
+      return redirect()->route('Subject.index')->with('success1','บันทึกข้อมูลเรียบร้อย');
     }
 
     /**
@@ -90,7 +131,10 @@ class SubjectController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = Subject::find($id);
+        $users = DB::select("select * from teacher");
+        $users1 = DB::select("select * from subject");
+        return view('Subject.insertsubject',compact('user','users','users1','id'));
     }
 
     /**

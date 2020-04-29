@@ -32,16 +32,28 @@
 
             <div class="row four-column">
                 <div id="grid">
+                    <h3>หมวดรูปภาพนัดหมาย เทอม 1</h3>
                     <?php foreach ($users as $row):?>
-                    <div class="portfolio-item col-sm-6 col-md-3" data-groups='["all", "letters", "red", "square"]'>
-                        <div class="single-portfolio">
-                            <img src="image/<?php echo $row->img; ?>" alt="">
-                            <div class="portfolio-links">
-                                <a href="portfolio-single.html"><i class="fa fa-link"></i></a>
-                            </div><!-- /.links -->
-                        </div><!-- /.single-portfolio -->
-                        <br>
-                        <h4><a href="{{url('New-app/'.$row->id)}}"><?php echo $row->title; ?></a></h4>
+                    <div class="col-sm-7">
+
+
+                        <h4><a href="{{url('New-app/'.$row->id)}}"><?php echo $row->title; ?> เทอม <?php echo $row->term; ?></a></h4>
+
+                    </div><!-- /.portfolio-item -->
+                    <?php endforeach; ?>
+                </div><!-- /#grid -->
+            </div><!-- /.row -->
+
+
+            <div class="row four-column">
+                <div id="grid">
+                    <h3>หมวดรูปภาพนัดหมาย เทอม 2</h3>
+                    <?php foreach ($users2 as $row1):?>
+                    <div class="col-sm-7">
+
+
+                        <h4><a href="{{url('New-app/'.$row1->id)}}"><?php echo $row1->title; ?> เทอม <?php echo $row1->term; ?></a></h4>
+
                     </div><!-- /.portfolio-item -->
                     <?php endforeach; ?>
                 </div><!-- /#grid -->

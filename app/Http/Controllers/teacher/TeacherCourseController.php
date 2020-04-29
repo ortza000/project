@@ -83,14 +83,12 @@ class TeacherCourseController extends Controller
         $user1 = new teacher_course(
             [
 
-
             'teh_id'  => $request->get('tehid'),
             'course_id'  => $request->get('cousreid'),
-
-
-            ]
+           ]
 
           );
+
              $user1->save();
 
              $user2 = new Project(
@@ -104,7 +102,7 @@ class TeacherCourseController extends Controller
                 ]
               );
                 $user2->save();
-       return redirect()->route('course-teacher.index')->with('success1','บันทึกข้อมูลเรียบร้อย');
+    //    return redirect()->route('course-teacher.index')->with('success1','บันทึกข้อมูลเรียบร้อย');
     }
     public function store1(Request $request)
     {
@@ -136,6 +134,79 @@ class TeacherCourseController extends Controller
                 ]
               );
                 $user->save();
+       return redirect()->route('course-teacher.index')->with('success1','บันทึกข้อมูลเรียบร้อย');
+    }
+
+    public function store2(Request $request)
+    {
+
+      $vehicle = $request->input('vehicle1');
+
+      if($vehicle == ''){
+
+      $this->validate($request,
+      [
+
+        'cousreid'  => 'required',
+        'tehid'  => 'required',
+        'username'  => 'required',
+        'proname'  => 'required',
+        'prodes'  => 'required',
+        'partdes' => 'required',
+        'date' => 'required'
+      ]
+      );
+
+      $user = new student_invite(
+        [
+        'teh_id'  => $request->get('tehid'),
+        'course_id'  => $request->get('cousreid'),
+        'part_des'  => $request->get('partdes'),
+        'part_date'  => $request->get('date'),
+        ]
+      );
+        $user->save();
+    }else{
+
+        $this->validate($request,
+        [
+
+          'cousreid'  => 'required',
+          'tehid'  => 'required',
+          'username'  => 'required',
+          'proname'  => 'required',
+          'prodes'  => 'required',
+          'partdes' => 'required',
+          'date' => 'required'
+        ]
+        );
+
+        $user = new student_invite(
+          [
+          'teh_id'  => $request->get('tehid'),
+          'course_id'  => $request->get('cousreid'),
+          'part_des'  => $request->get('partdes'),
+          'part_date'  => $request->get('date'),
+          ]
+        );
+          $user->save();
+
+          $user1 = new teacher_course(
+            [
+
+            'teh_id'  => $request->get('tehid'),
+            'course_id'  => $request->get('cousreid'),
+           ]
+
+          );
+
+             $user1->save();
+
+
+
+    }
+
+
        return redirect()->route('course-teacher.index')->with('success1','บันทึกข้อมูลเรียบร้อย');
     }
 

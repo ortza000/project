@@ -14,7 +14,7 @@
                 </div>
                 <ol class="breadcrumb">
                     <li><a href="home">Home</a></li>
-                    <li><a href="{{ route('portfolio-four.index') }}">Portfolio</a></li>
+                    {{-- <li><a href="{{ route('portfolio-four.index') }}">Portfolio</a></li> --}}
                     <li class="active">Portfolio Four Column</li>
                 </ol>
             </div>

@@ -46,7 +46,7 @@
         <div id="boxFastEvent{{ $fastProject->id }}"
             style="padding: 4px; border: 1px solid {{ $fastProject->color }}; background-color: {{ $fastProject->color }}"
             class='fc-event event text-center'
-            data-event='{"id":"{{ $fastProject->pro_id }}","course_id":"{{ $fastProject->pro_id }}","title":"{{ $fastProject->pro_name }}","description":"{{ $fastProject->pro_des }}","color":"{{ $fastProject->color }}","term":"{{ $fastProject->term }}","type":"{{ $fastProject->type }}","start":"{{ $fastProject->start }}","end":"{{ $fastProject->end }}"}'>
+            data-event='{"id":"{{ $fastProject->pro_id }}","pro_id":"{{ $fastProject->pro_id }}","title":"{{ $fastProject->pro_name }}","description":"{{ $fastProject->pro_des }}","color":"{{ $fastProject->color }}","term":"{{ $fastProject->term }}","type":"{{ $fastProject->type }}","start":"{{ $fastProject->start }}","end":"{{ $fastProject->end }}"}'>
             {{ $fastProject->pro_name }}
         </div>
 

@@ -55,7 +55,7 @@
                     </div>
                 </div><!-- /.col-md-9 -->
 
-                <div align="right">  <a href="{{route('Subject.create')}}" class="btn btn-success" >เพิ่มข้อมูล</a></div>
+                <div align="right">  <a href="{{route('faq-teacher.create')}}" class="btn btn-success" >เพิ่มข้อมูล</a></div>
 <br>
 <br>
 

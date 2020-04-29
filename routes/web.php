@@ -53,6 +53,7 @@ Route::resource('course','CourseController');
 Route::get('/course-invite/{id}', 'CourseController@edit');
 
 Route::resource('New-teacher','NewController');
+Route::get('/New-detail/{id}', 'NewController@show3');
 Route::get('/New-app/{id}', 'NewController@show2');
 Route::get('/New-event/{id}', 'NewController@show2');
 Route::get('/New-course/{id}', 'NewController@show2');
@@ -78,6 +79,7 @@ Route::get('/course_admin/create/{std_id}/{course_id}', 'admin\CourseStatusContr
 
 Route::resource('faq','FaqController');
 Route::resource('portfolio-four','PortfolioFourController');
+
 Route::resource('clients-page','ClientsPageController');
 
 Route::resource('image-upload','ImageResizeController');
@@ -100,8 +102,11 @@ Route::resource('faq-teacher','teacher\TeacherFaqController');
 
 Route::resource('course-teacher','teacher\TeacherCourseController');
 Route::post('course-teacher/create/create1','teacher\TeacherCourseController@store1');
+Route::post('course-teacher/register','teacher\TeacherCourseController@store2');
 
 Route::resource('file-teacher','teacher\fileshowController');
+Route::get('/file-course/{id}', 'teacher\fileshowController@show');
+
 Route::resource('about-us-teacher','teacher\TeacherAboutUsController');
 Route::get('/detail-course/{id}', 'teacher\TeacherAboutUsController@show');
 Route::resource('about-us','AboutUsController');
@@ -132,6 +137,10 @@ Route::get('/report_studentold','ReportALL@index3');
 Route::get('/report_cert','ReportALL@index4');
 Route::get('/detailreport_cert/{id}','ReportALL@show3');
 Route::get('/searchReport-cert', 'ReportALL@search');
+Route::get('pdf', 'PDFController@pdf');
+Route::get('pdf-course/{id}', 'PDFController@pdf');
+
+
 
 //fullcalender
 

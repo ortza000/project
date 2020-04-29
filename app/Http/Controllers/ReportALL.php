@@ -13,8 +13,16 @@ class ReportALL extends Controller
 {
     public function index()
     {
-      $users = Subject::paginate(5);
-      return view('report.report_subject', compact('users'));
+        $users = DB::table('subject')
+
+        ->select('sub_id','sub_name','sub_des','sub_term')
+        ->groupBy('sub_name')
+        ->paginate(5);
+
+
+
+     return view('report.report_subject')->with('users', $users);
+
     }
     public function index1()
     {
@@ -40,7 +48,7 @@ class ReportALL extends Controller
     public function show2($id)
     {
 
-        $users = DB::select("select * FROM subject s,teacher t WHERE s.teh_id = t.teh_id and s.teh_id = '$id'");
+        $users = DB::select("select * FROM subject s,teacher t WHERE s.teh_id = t.teh_id and s.sub_name = '$id'");
 
       return view('report.detailreport_subject', compact('users'));
     }

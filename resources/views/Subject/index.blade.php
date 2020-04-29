@@ -22,24 +22,25 @@
 <br>
             <table class="table table-dark">
               <tr>
-                <th>ID</th>
 
-                <th>ไอดีอาจารย์</th>
+
                 <th>ชื่อรายวิชา</th>
                 <th>รายละเอียด</th>
                 <th>เทอม</th>
 
+                <th>เพิ่มอาจารย์</th>
                 <th>Edit</th>
                 <th>Delete</th>
               </tr>
-                @foreach($users as $row)
+                @foreach($query as $row)
                 <tr>
-                  <td>{{$row->sub_id}}</td>
-                  <td>{{$row->teh_id}}</td>
+
+
                   <td>{{$row->sub_name}}</td>
                   <td>{{$row->sub_des}}</td>
                   <td>{{$row->sub_term}}</td>
 
+                  <td><a href="{{action('SubjectController@show',$row->sub_id)}}" class="btn btn-primary">เพิ่มอาจารย์</a></td>
                   <td><a href="{{action('SubjectController@edit',$row->sub_id)}}" class="btn btn-primary">Edit</a></td>
                   <td>
                     <form  method="post" class="delete_form" action="{{action('SubjectController@destroy',$row->sub_id)}}">
@@ -53,7 +54,7 @@
             </table>
             <div class="row">
                 <div class="col-12 text-center">
-            {{$users->links()}}
+            {{$query->links()}}
                 </div>
            </div>
            </div>

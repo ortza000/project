@@ -38,9 +38,9 @@ class HomeController extends Controller
     {
         $users = DB::table('eventcalendars as e')
                 ->join('image as i', 'e.id', '=', 'i.id')
-                ->select('e.title', 'i.img','e.id')
+                ->select('e.title', 'i.img','e.id','e.term')
                 ->where('e.type','=','ข่าวนัดหมาย')
-                ->orderBy('start','desc')
+                ->groupBy('e.title')
                 ->paginate(4);
          $num = 1 ;
        return view('home',  compact('users','num'));
@@ -53,9 +53,9 @@ class HomeController extends Controller
 
         $users = DB::table('eventcalendars as e')
                 ->join('image as i', 'e.id', '=', 'i.id')
-                ->select('e.title', 'i.img','e.id')
+                ->select('e.title', 'i.img','e.id','e.term')
                 ->where('e.type','=','อบรม')
-                ->orderBy('start','desc')
+                ->groupBy('e.title')
                 ->paginate(4);
 
                 $num = 2 ;
@@ -64,9 +64,9 @@ class HomeController extends Controller
         else{
             $users = DB::table('eventcalendars as e')
             ->join('image as i', 'e.id', '=', 'i.id')
-            ->select('e.title', 'i.img','e.id')
+            ->select('e.title', 'i.img','e.id','e.term')
             ->where('e.type','=','กิจกรรม')
-            ->orderBy('start','desc')
+            ->groupBy('e.title')
             ->paginate(4);
             $num = 3 ;
    return view('home',  compact('users','num'));

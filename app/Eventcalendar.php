@@ -10,7 +10,7 @@ class Eventcalendar extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['title','course_id','start','end','color','description','type','term'];
+    protected $fillable = ['title','course_id','pro_id','start','end','color','description','type','term'];
 
 
     public function getStartAttribute($value){

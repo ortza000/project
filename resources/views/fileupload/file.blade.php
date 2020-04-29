@@ -63,25 +63,7 @@
                     </div>
 
             </div>
-            <div class="form-group">
-                <label for="image"> เลือกหัวข้อกิจกรรม </label>
 
-                <div class="col-sm-20" >
-
-                    <select id="proid"  name="proid" class="form-control proid">
-                        <option value="0"><center>กรุณาเลือกหัวข้อกิจกรรม</center></option>
-                        <?php foreach ($users1 as $row):?>
-                        <option value="<?php echo $row->term; ?>"><?php echo $row->term; ?></option>
-                        <?php endforeach; ?>
-                      </select>
-
-
-                      <select id="proname"  name="proname" class="form-control proname">
-                        <option value="0"></option>
-                      </select>
-                </div>
-
-        </div>
         <button type="submit" class="btn btn-primary">Submit</button>
             </form>
             {{ csrf_field() }}

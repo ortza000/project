@@ -10,8 +10,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="page-header">
-                    <?php foreach ($users as $row):?>
-                    <h1>หัวข้อข่าว <?php echo $row->title; ?></h1>
+                    <?php foreach ($users1 as $row):?>
+                    <h1>รูปภาพ <?php echo $row->title; ?></h1>
+                        <?php endforeach; ?>
                 </div>
                 <ol class="breadcrumb">
 
@@ -26,23 +27,19 @@
     <div class="content-wrapper">
 
         <div class="inner-content">
-            <h1>รายละเอียดข่าว</h1>
+
 
             <div class="row four-column">
                 <div id="grid">
-
-                    <div class="portfolio-item col-sm-6 col-md-3" data-groups='["all", "letters", "red", "square"]'>
+                    <?php foreach ($users as $row):?>
+                    <div class="portfolio-item col-sm-6 col-md-2" data-groups='["all", "letters", "red", "square"]'>
                         <div class="single-portfolio">
-
+                            <img src="{{asset('image/'.$row->img)}}" alt="">
                             <div class="portfolio-links">
                                 <a href="portfolio-single.html"><i class="fa fa-link"></i></a>
                             </div><!-- /.links -->
                         </div><!-- /.single-portfolio -->
                         <br>
-                        <p> <a>หัวข้อข่าว </a><?php echo $row->title; ?></p>
-                        <p> <a>รายละเอียดข่าว</a> <?php echo $row->description; ?></p>
-                        <p> <a>วันที่เริ่ม</a> <?php echo $row->start; ?></p>
-                        <p> <a>วันที่สิ้นสุด</a> <?php echo $row->end; ?></p>
                     </div><!-- /.portfolio-item -->
                     <?php endforeach; ?>
                 </div><!-- /#grid -->
