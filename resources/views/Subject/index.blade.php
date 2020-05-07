@@ -24,11 +24,12 @@
               <tr>
 
 
+
                 <th>ชื่อรายวิชา</th>
                 <th>รายละเอียด</th>
                 <th>เทอม</th>
 
-                <th>เพิ่มอาจารย์</th>
+
                 <th>Edit</th>
                 <th>Delete</th>
               </tr>
@@ -40,7 +41,6 @@
                   <td>{{$row->sub_des}}</td>
                   <td>{{$row->sub_term}}</td>
 
-                  <td><a href="{{action('SubjectController@show',$row->sub_id)}}" class="btn btn-primary">เพิ่มอาจารย์</a></td>
                   <td><a href="{{action('SubjectController@edit',$row->sub_id)}}" class="btn btn-primary">Edit</a></td>
                   <td>
                     <form  method="post" class="delete_form" action="{{action('SubjectController@destroy',$row->sub_id)}}">
@@ -52,11 +52,7 @@
                 </tr>
                 @endforeach
             </table>
-            <div class="row">
-                <div class="col-12 text-center">
-            {{$query->links()}}
-                </div>
-           </div>
+
            </div>
 
         </div>

@@ -34,14 +34,8 @@
 
                </select>
           </div>
-
           <div class="form-group">
-            <input type="text" name="subname" class="form-control" placeholder="ชื่อวิชาใหม่" />
-          </div>
-
-
-          <div class="form-group">
-            <select name="subdes" id="subdes" class="form-control" >
+            <select name="subdes1" id="subdes1" class="form-control" >
                 <option value="">เลือก รายละเอียด</option>
                 @foreach($users1 as $row1)
                 <option value="{{$row1->sub_des}}">{{$row1->sub_des}}</option>
@@ -49,6 +43,16 @@
 
                </select>
           </div>
+
+          <div class="form-group">
+            <input type="text" name="subname" class="form-control" placeholder="ชื่อวิชาใหม่" />
+          </div>
+
+          <div class="form-group">
+            <input type="text" name="subdes" class="form-control" placeholder="รายละเอียดวิชา" />
+          </div>
+
+
           <div class="form-group">
             <select name="subterm" id="subterm" class="form-control" >
                 <option value="">เลือก เทอม</option>

@@ -74,7 +74,7 @@
           </div>
 
 
-            {!! Form::checkbox( 'vehicle1', "{$user->course_id}" ) !!}
+            {!! Form::checkbox( 'vehicle1', "{$user->course_id}" ) !!} ผู้ดูแลอบรม
 
 
           <div class="form-group">

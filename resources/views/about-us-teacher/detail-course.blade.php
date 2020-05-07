@@ -30,7 +30,7 @@
 <div class="container">
     <div class="content-wrapper">
         <section class="about-us-wrapper">
-            <center><h2>รายชื่อคนละทะเบียนอบรม</h2></center>
+            <center><h2>รายชื่อคนลงทะเบียนอบรม</h2></center>
             <div class="row margin-bottom-60">
 
 

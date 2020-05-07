@@ -39,7 +39,7 @@
         <div style="width:600px; height:550px; padding:20px; text-align:center; border: 5px solid #282726; background-color:#F0BC88">
 <br><br><br>
 
-               <span style="font-size:50px; font-weight:bold">มหาวิทยาลับ บูรพา วิทยาเขตจันทบุรี</span>
+               <span style="font-size:50px; font-weight:bold">มหาวิทยาลัย บูรพา วิทยาเขตจันทบุรี</span>
                <span style="font-size:30px; font-weight:bold">ขอมอบเกียรติบัตรฉบับนี้ไว้เเสดงว่า</span>
                <br><br>       @foreach ($certificate as $row)
                <br><br>

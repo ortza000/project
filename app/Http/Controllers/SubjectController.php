@@ -16,30 +16,29 @@ class SubjectController extends Controller
     public function index()
     {
 
-        $query = DB::table('subject')
-
-         ->select('sub_id','sub_name','sub_des','sub_term')
-         ->groupBy('sub_name')
-         ->paginate(5);
+        $query = DB::select('select * FROM subject GROUP by sub_name ORDER BY `subject`.`sub_id` ASC');
 
 
 
-      return view('Subject.index')->with('query', $query);
+
+
+
+      return view('Subject.index', compact('query'));
     }
 
    public function search(Request $request )
     {
          $search = $request->get('search');
-         $post = DB::table('subject')->where('sub_name','like','%'.$search.'%')->paginate(5);
-        return view('Subject.index',['users' => $post]);
+         $post = DB::table('subject')->where('sub_name','like','%'.$search.'%')->groupBy('sub_name')->paginate(5);
+        return view('Subject.index',['query' => $post]);
     }
 
 
    public function search1(Request $request )
    {
         $search = $request->get('search');
-        $post = DB::table('subject')->where('sub_name','like','%'.$search.'%')->paginate(5);
-       return view('report.report_subject',['users' => $post]);
+        $post = DB::table('subject')->where('sub_name','like','%'.$search.'%')->groupBy('sub_name')->paginate(5);
+       return view('report.report_subject',['query' => $post]);
    }
     /**
      * Show the form for creating a new resource.
@@ -72,8 +71,8 @@ class SubjectController extends Controller
     {
 
         $subname = $request->input('subname');
-
-      if($subname == ''){
+        $subdes = $request->input('subdes');
+      if($subname == '' &&  $subdes ==''  ){
 
 
       $this->validate($request,
@@ -81,7 +80,7 @@ class SubjectController extends Controller
 
         'tehid' => 'required',
         'subname1' => 'required',
-        'subdes' => 'required',
+        'subdes1' => 'required',
         'subterm' => 'required'
       ]
       );
@@ -90,7 +89,7 @@ class SubjectController extends Controller
 
         'teh_id'  => $request->get('tehid'),
         'sub_name'  => $request->get('subname1'),
-        'sub_des'  => $request->get('subdes'),
+        'sub_des'  => $request->get('subdes1'),
         'sub_term' => $request->get('subterm')
         ]
       );
@@ -186,8 +185,9 @@ class SubjectController extends Controller
      */
     public function destroy($id)
     {
-        $user = Subject::find($id);
-        Subject::destroy($id);
+
+        $user = Subject::find($id)->delete();
+
 
       return redirect()->route('Subject.index')->with('success','ลบเรียบร้อย');
     }

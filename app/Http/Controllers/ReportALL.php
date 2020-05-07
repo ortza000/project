@@ -13,7 +13,7 @@ class ReportALL extends Controller
 {
     public function index()
     {
-        $users = DB::table('subject')
+        $query = DB::table('subject')
 
         ->select('sub_id','sub_name','sub_des','sub_term')
         ->groupBy('sub_name')
@@ -21,7 +21,7 @@ class ReportALL extends Controller
 
 
 
-     return view('report.report_subject')->with('users', $users);
+     return view('report.report_subject')->with('query', $query);
 
     }
     public function index1()

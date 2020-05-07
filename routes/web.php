@@ -47,6 +47,7 @@ Route::get('/search-teacher', 'TechersController@search');
 
 Route::resource('Subject','SubjectController');
 Route::get('/search-subject', 'SubjectController@search');
+
 Route::get('/searchReport-subject', 'SubjectController@search1');
 
 Route::resource('course','CourseController');
