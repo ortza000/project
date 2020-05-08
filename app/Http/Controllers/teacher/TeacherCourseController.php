@@ -134,7 +134,7 @@ class TeacherCourseController extends Controller
                 ]
               );
                 $user->save();
-       return redirect()->route('course-teacher.index')->with('success1','บันทึกข้อมูลเรียบร้อย');
+       return redirect('fullcalendar1');
     }
 
     public function store2(Request $request)

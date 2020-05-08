@@ -11,7 +11,7 @@ Route::get('/', function () {
  Route::resource('fullcalendar-student', 'FullCalendar1Controller');
  Route::resource('fullcalendar1', 'FullCalendarStudentController');
 
-
+//  Route::get('/fullcalendar1/course', 'FullCalendarStudentController@index');
 Route::get('/load-events', 'EventcalendarController@loadEvents')->name('routeLoadEvents');
 
 Route::put('/event-update', 'EventcalendarController@update')->name('routeEventUpdate');
@@ -67,6 +67,7 @@ Route::get('/homeapp', 'HomeController@show');
 Route::get('/index-course', 'NewController@show')->name('Newcourse');
 Route::get('/index-event', 'NewController@show1')->name('Newevent');
 Route::resource('course_admin','admin\CourseStatusController');
+Route::post('/checkbox-status','admin\CourseStatusController@store');
 
 Route::resource('course_certificate','admin\CourseCertificateController');
 Route::post('/checkbox-example', 'admin\CourseCertificateController@store');
@@ -102,6 +103,7 @@ Route::post('clients-page-teacher/create/create1','teacher\TeacherClientsPageCon
 Route::resource('faq-teacher','teacher\TeacherFaqController');
 
 Route::resource('course-teacher','teacher\TeacherCourseController');
+
 Route::post('course-teacher/create/create1','teacher\TeacherCourseController@store1');
 Route::post('course-teacher/register','teacher\TeacherCourseController@store2');
 
@@ -138,8 +140,11 @@ Route::get('/report_studentold','ReportALL@index3');
 Route::get('/report_cert','ReportALL@index4');
 Route::get('/detailreport_cert/{id}','ReportALL@show3');
 Route::get('/searchReport-cert', 'ReportALL@search');
+
 Route::get('pdf', 'PDFController@pdf');
 Route::get('pdf-course/{id}', 'PDFController@pdf');
+
+Route::get('pdf-event/{id}', 'PDFController@pdfEevnt');
 
 
 

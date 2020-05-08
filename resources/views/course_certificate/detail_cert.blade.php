@@ -11,6 +11,11 @@
               <br>
               <form name='frmMain' method="post" action="/checkbox-example">
                 {{csrf_field()}}
+
+
+                <p><input type="button" class="check" value="Check All" />
+                    <input type="button" class="uncheck" value="UnCheck All" />
+                 </p>
             <table class="table table-dark">
               <tr>
                 <th>รายชื่อผู้ที่ได้รับ ใบเกียรติบัตร</th>
@@ -30,8 +35,8 @@
                     <td>
 
 
-                  {!! Form::checkbox( 'std_id[]', "{$row->std_id}" ) !!}
-                   {!! Form::hidden( 'course_id[]', "{$row->course_id}") !!}
+                  {!! Form::checkbox( 'std_id[]', $row->std_id ,false,['class' => 'questionCheckBox']) !!}
+                   {!! Form::hidden( 'course_id[]', $row->course_id , ) !!}
 
     </td>
                 </tr>

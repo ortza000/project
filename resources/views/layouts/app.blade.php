@@ -11,6 +11,9 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -78,5 +81,22 @@
         </main>
     </div>
     @yield('js')
+
+
 </body>
 </html>
+
+
+<script type="text/javascript">
+    $(function () {
+        $('.check').on('click', function () {
+            $('.questionCheckBox').each(function(){ this.checked = true; });
+        });
+    });
+
+    $(function () {
+        $('.uncheck').on('click', function () {
+            $('.questionCheckBox').each(function(){ this.checked = false; });
+        });
+    });
+</script>

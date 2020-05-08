@@ -30,7 +30,11 @@
 <div class="container">
     <div class="content-wrapper">
         <section class="about-us-wrapper">
-            <center><h2>รายชื่อคนละทะเบียนกิจกรรม</h2></center>
+            <?php foreach ($users1 as $row):?>
+            <center><h2>รายชื่อคนทะเบียน<?php echo $row->pro_name; ?></h2></center>
+
+
+            <?php endforeach; ?>
             <div class="row margin-bottom-60">
 
 
@@ -51,10 +55,13 @@
                                 <?php foreach ($users as $row):?>
                                 <tr>
                                             <td><?php echo $row->std_name; ?></td>
+
                                             <td><?php echo $row->stdevent_des; ?></td>
                                             <?php endforeach; ?>
                                   </tr>
                               </table>
+
+                              <a href="{{url('pdf-event/'.$row->pro_id)}}"  class="btn btn-primary">ปลิ้นใบเช็คชื่อ</a>
                     </div>
                 </section>
             </div><!-- /.row -->

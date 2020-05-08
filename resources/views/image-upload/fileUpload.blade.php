@@ -97,6 +97,8 @@
                 </div>
                         <div class="card-footer">
                             <button type="submit" class="btn btn-success"> Upload </button>
+                            <center><h3><a href="{{ url('/fullcalendar1') }}" class="previous">&laquo; ย้อนกลับ</a>
+                                <a href="{{ url('/New-teacher') }}" class="next">หน้าต่อไป &raquo;</a></h3></center>
                         </div>
                     </div>
                 </form>

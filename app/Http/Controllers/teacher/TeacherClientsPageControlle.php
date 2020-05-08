@@ -35,10 +35,10 @@ class TeacherClientsPageControlle extends Controller
         $user = Event::find($id);
         $test1 = Auth::user()->id;
 
-        $users = DB::select("select sr.stdevent_des,sr.std_id,s.std_name from student_event_register sr ,student s  where s.std_id=sr.std_id and pro_id='$id'");
+        $users = DB::select("select sr.pro_id,sr.stdevent_des,sr.std_id,s.std_name from student_event_register sr ,student s  where s.std_id=sr.std_id and pro_id='$id'");
+        $users1 = DB::select("select * from projectandevent where pro_id = '$id'");
 
-
-       return view('clients-page-teacher.detail',compact('user','id'),['users' => $users]);
+       return view('clients-page-teacher.detail',compact('user','id','users1'),['users' => $users]);
     }
     public function edit($id)
     {

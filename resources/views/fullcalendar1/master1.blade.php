@@ -68,6 +68,7 @@
 
 
 
+
     <div id='calendar'
         data-route-load-events="{{route('routeLoadEvents')}}"
          data-route-event-update="{{route('routeEventUpdate')}}"
@@ -76,7 +77,8 @@
          ></div>
 
     <div style='clear:both'></div>
-
+    <center><h3><a href="{{ url('course-teacher/create') }}" class="previous">&laquo; ย้อนกลับ</a>
+    <a href="{{ url('/image-upload') }}" class="next">หน้าต่อไป &raquo;</a></h3></center>
   </div>
 
 <script src='{{asset('assets/fullcalendar/packages/core/main.js')}}'></script>

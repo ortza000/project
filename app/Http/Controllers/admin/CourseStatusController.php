@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\student_course;
 use App\student_invite;
-
+use Carbon\Carbon;
 use App\Project;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -36,27 +36,23 @@ class CourseStatusController extends Controller
     }
     public function store(Request $request)
     {
-      $this->validate($request,
-      [
-
-        'stdid' => 'required',
-        'courseid' => 'required',
-        'partdes' => 'required',
-        'partdate' => 'required'
-      ]
-      );
-      $user = new student_invite(
-        [
 
 
-        'course_id'   => $request->get('courseid'),
-        'std_id'      => $request->get('stdid'),
-        'part_des'    => $request->get('partdes'),
-        'part_date'   => $request->get('partdate')
 
-        ]
-      );
-      $user->save();
+        $course_id = $request->input('course_id');
+        $std_id = $request->input('std_id');
+        $date = Carbon::now();
+
+
+
+
+        foreach ($std_id as $index => $code )
+
+        {
+            DB::insert('INSERT INTO `student_invite` (std_id,course_id,part_des,part_date) VALUES (?,?,?,?)', array($code,$course_id[$index],'เข้าร่วมอบรม', $date));
+        }
+
+
       return redirect()->route('course_admin.index');
     }
 
